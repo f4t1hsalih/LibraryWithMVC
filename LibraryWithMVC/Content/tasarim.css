@@ -1,4 +1,5 @@
-﻿* {
+﻿/* Genel stil ayarları */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,10 +7,11 @@
 
 body {
     background-color: #f4f6f8;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* Yan Menü (Sidebar) */
 .sidebar {
-    font-family: 'Poppins', sans-serif;
     position: fixed;
     top: 0;
     left: 0;
@@ -40,11 +42,11 @@ body {
             .sidebar ul li a {
                 display: flex;
                 align-items: center;
-                padding: 15px 20px;
+                padding: 13px 0px;
                 color: #f4f6f8;
                 text-decoration: none;
                 font-size: 16px;
-                transition: all 0.3s ease;
+                transition: background-color 0.3s ease, color 0.3s ease;
             }
 
                 .sidebar ul li a:hover {
@@ -57,32 +59,33 @@ body {
                     margin-right: 15px;
                 }
 
-            .sidebar ul li .submenu {
-                display: none;
-                flex-direction: column;
-                background-color: #34495e;
+/* Açılır Menü (Submenu) */
+.submenu {
+    display: none;
+    list-style: none;
+    padding-left: 20px;
+}
+
+    .submenu li {
+        padding: 10px 0;
+    }
+
+        .submenu li a {
+            display: flex;
+            align-items: center;
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+
+            .submenu li a:hover {
+                background-color: #3b556e;
             }
 
-                .sidebar ul li .submenu a {
-                    padding: 12px 40px;
-                    font-size: 14px;
-                    color: #ecf0f1;
-                }
+.sidebar ul li.active > .submenu {
+    display: block;
+}
 
-                    .sidebar ul li .submenu a:hover {
-                        background-color: #3b556e;
-                    }
-
-            .sidebar ul li.active > a,
-            .sidebar ul li.active > a:hover {
-                background-color: #1abc9c;
-                color: #fff;
-            }
-
-            .sidebar ul li.active .submenu {
-                display: flex;
-            }
-
+/* İçerik Alanı (Main Content) */
 .main-content {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-left: 260px;
@@ -92,6 +95,7 @@ body {
     background-color: #fff;
 }
 
+/* Responsive Tasarım */
 @media (max-width: 768px) {
     .sidebar {
         width: 200px;

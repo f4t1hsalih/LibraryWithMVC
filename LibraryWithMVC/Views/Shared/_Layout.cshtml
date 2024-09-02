@@ -7,17 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/tasarim.css" rel="stylesheet" />
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const submenuToggle = document.querySelector('.submenu-toggle');
-
-            submenuToggle.addEventListener('click', function (e) {
-                e.preventDefault();
-                this.parentElement.classList.toggle('active');
-            });
-        });
-    </script>
 </head>
 <body>
 
@@ -120,5 +111,17 @@
         @RenderBody()
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(function (toggle) {
+                toggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

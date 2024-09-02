@@ -1,4 +1,5 @@
-﻿
+﻿@model List<LibraryWithMVC.Models.Entity.tbl_category>
+
 @{
     ViewBag.Title = "Kategoriler";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,18 +9,25 @@
 <hr />
 
 
-<table>
+<table class="table table-bordered">
     <thead>
         <tr>
-            <th>
-                Kategori Adı
-            </th>
-            <th>
-                Açıklama
-            </th>
+            <th>#</th>
+            <th>Kategori Adı</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
         </tr>
     </thead>
-    <tr>
-        <td></td>
-    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ctg_id</td>
+                <td>@item.ctg_name</td>
+                <td><a href="#" class="btn btn-primary">Güncelle</a></td>
+                <td><a href="#" class="btn btn-danger">Sil</a></td>
+            </tr>
+        }
+    </tbody>
 </table>
+

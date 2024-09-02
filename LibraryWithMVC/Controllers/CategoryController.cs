@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using LibraryWithMVC.Models.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace LibraryWithMVC.Controllers
@@ -11,7 +9,11 @@ namespace LibraryWithMVC.Controllers
         // GET: Category
         public ActionResult Index()
         {
-            return View();
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                return View(db.tbl_category.ToList());
+            }
+
         }
     }
 }
