@@ -44,5 +44,26 @@ namespace LibraryWithMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: EditCategory
+        [HttpGet]
+        public ActionResult EditCategory(int id)
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                tbl_category category = db.tbl_category.Find(id);
+                return View(category);
+            }
+        }
+        [HttpPost]
+        public ActionResult EditCategory(tbl_category category)
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                db.Entry(category).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }
