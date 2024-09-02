@@ -32,5 +32,17 @@ namespace LibraryWithMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: DeleteCategory
+        public ActionResult DeleteCategory(int id)
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                tbl_category category = db.tbl_category.Find(id);
+                db.tbl_category.Remove(category);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }
