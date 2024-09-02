@@ -1,0 +1,21 @@
+﻿@model LibraryWithMVC.Models.Entity.tbl_category
+
+@{
+    ViewBag.Title = "Kategori Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kategori Ekle</h2>
+<hr />
+
+@using (Html.BeginForm("AddCategory", "Category", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ctg_id)
+    <div class="form-group">
+        @Html.LabelFor(x => x.ctg_name, "Kategori Adı")
+        @Html.TextBoxFor(x => x.ctg_name, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:10px;">
+        <button type="submit" class="btn btn-primary">Ekle</button>
+    </div>
+}
