@@ -15,5 +15,30 @@ namespace LibraryWithMVC.Controllers
                 return View(staff);
             }
         }
+
+        // GET: AddStaff
+        [HttpGet]
+        public ActionResult AddStaff()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddStaff(tbl_staff staff)
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                if (ModelState.IsValid)
+                {
+                    db.tbl_staff.Add(staff);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(staff);
+                }
+            }
+        }
+
     }
 }
