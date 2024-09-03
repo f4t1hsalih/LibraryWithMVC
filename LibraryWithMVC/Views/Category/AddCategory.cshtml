@@ -11,11 +11,13 @@
 @using (Html.BeginForm("AddCategory", "Category", FormMethod.Post))
 {
     @Html.HiddenFor(x => x.ctg_id)
-    <div class="form-group">
+
+    <div class="form-group mt-3">
         @Html.LabelFor(x => x.ctg_name, "Kategori Adı")
         @Html.TextBoxFor(x => x.ctg_name, new { @class = "form-control" })
     </div>
-    <div style="margin-top:10px;">
+
+    <div class="form-group mt-3">
         <button type="submit" class="btn btn-primary">Ekle</button>
     </div>
 }

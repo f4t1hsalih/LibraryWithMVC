@@ -27,6 +27,7 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
+                ModelState.Remove("stf_id");
                 if (ModelState.IsValid)
                 {
                     db.tbl_staff.Add(staff);
@@ -37,6 +38,38 @@ namespace LibraryWithMVC.Controllers
                 {
                     return View(staff);
                 }
+            }
+        }
+
+        //GET: DeleteStaff
+        public ActionResult DeleteStaff(int id)
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                db.tbl_staff.Remove(db.tbl_staff.Find(id));
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+        }
+
+        //GET: EditStaff
+        [HttpGet]
+        public ActionResult EditStaff(int id)
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                var value = db.tbl_staff.Find(id);
+                return View(value);
+            }
+        }
+        [HttpPost]
+        public ActionResult EditStaff(tbl_staff staff)
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                db.Entry(staff).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
         }
 

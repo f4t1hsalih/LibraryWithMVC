@@ -26,7 +26,7 @@
                 <td>@item.stf_name</td>
                 <td>@item.stf_surname</td>
                 <td><a href="/Staff/EditStaff/@item.stf_id" class="btn btn-primary">Güncelle</a></td>
-                <td><a href="/Staff/DeleteStaff/@item.stf_id" class="btn btn-danger">Sil</a></td>
+                <td>@Html.ActionLink("Sil", "DeleteStaff", new { id = item.stf_id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek İstediğinize Emin Misiniz?')" })</td>
             </tr>
         }
     </tbody>
