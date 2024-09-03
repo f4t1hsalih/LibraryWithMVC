@@ -29,9 +29,14 @@ namespace LibraryWithMVC.Controllers
         }
 
         // GET: Book
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            return View(db.tbl_book.ToList());
+            var books = from k in db.tbl_book select k;
+            if (!string.IsNullOrEmpty(p))
+            {
+                books = books.Where(m => m.bk_name.Contains(p));
+            }
+            return View(books.ToList());
         }
 
         // GET:AddBook
@@ -77,5 +82,6 @@ namespace LibraryWithMVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
     }
 }

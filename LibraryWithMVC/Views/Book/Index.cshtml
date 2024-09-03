@@ -1,4 +1,4 @@
-﻿@model List<LibraryWithMVC.Models.Entity.tbl_book>
+﻿@model IEnumerable<LibraryWithMVC.Models.Entity.tbl_book>
 
 @{
     ViewBag.Title = "Kitaplar";
@@ -8,10 +8,14 @@
 <h2>Kitap Listesi</h2>
 <hr />
 
-<div>
-    <input type="text" class="form-control" placeholder="Aranacak kitabı giriniz..." />
-</div>
+<!-- Arama Kutusu -->
+@using (Html.BeginForm("Index", "Book", FormMethod.Get))
+{
+    <input type="text" name="p" class="form-control" placeholder="Aranacak kitabı giriniz..." value="@Request.QueryString["p"]" />
+}
 <br />
+
+<!-- Kitap Listesi -->
 <table class="table table-bordered">
     <thead>
         <tr>
