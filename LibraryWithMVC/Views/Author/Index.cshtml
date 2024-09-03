@@ -1,0 +1,37 @@
+﻿@model List<LibraryWithMVC.Models.Entity.tbl_author>
+
+@{
+    ViewBag.Title = "Yazarlar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yazar Listesi</h2>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Yazar Adı</th>
+            <th>Yazar Soyadı</th>
+            <th>Detay</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ath_id</td>
+                <td>@item.ath_name</td>
+                <td>@item.ath_surname</td>
+                <td>@item.ath_detail</td>
+                <td><a href="/Author/EditAuthor/@item.ath_id" class="btn btn-primary">Güncelle</a></td>
+                <td><a href="/Author/DeleteAuthor/@item.ath_id" class="btn btn-danger">Sil</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Author/AddAuthor/" class="btn btn-outline-primary">Yeni Yazar Ekle</a>
