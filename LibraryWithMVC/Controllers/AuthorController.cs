@@ -13,7 +13,24 @@ namespace LibraryWithMVC.Controllers
             {
                 return View(db.tbl_author.ToList());
             }
-
         }
+
+        // GET: Add Author
+        [HttpGet]
+        public ActionResult AddAuthor()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddAuthor(tbl_author author)
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                db.tbl_author.Add(author);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }
