@@ -1,0 +1,47 @@
+﻿@model List<LibraryWithMVC.Models.Entity.tbl_book>
+
+@{
+    ViewBag.Title = "Kitaplar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kitap Listesi</h2>
+<hr />
+
+<div>
+    <input type="text" class="form-control" placeholder="Aranacak kitabı giriniz..." />
+</div>
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Kitap Adı</th>
+            <th>Kategori</th>
+            <th>Yazar</th>
+            <th>Yayın Yılı</th>
+            <th>Yayınevi</th>
+            <th>Sayfa S.</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.bk_id</td>
+                <td>@item.bk_name</td>
+                <td>@item.tbl_category.ctg_name</td>
+                <td>@item.tbl_author.ath_name @item.tbl_author.ath_surname</td>
+                <td>@item.bk_year_of_publication</td>
+                <td>@item.bk_publishing_house</td>
+                <td>@item.bk_page</td>
+                <td><a href="/Book/EditBook/@item.bk_id" class="btn btn-primary">Güncelle</a></td>
+                <td>@Html.ActionLink("Sil", "DeleteBook", new { id = item.bk_id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek İstediğinize Emin Misiniz?')" })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Book/AddBook/" class="btn btn-outline-primary">Yeni Kitap Ekle</a>
