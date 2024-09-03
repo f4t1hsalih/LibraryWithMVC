@@ -1,4 +1,6 @@
-﻿@model List<LibraryWithMVC.Models.Entity.tbl_member>
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<LibraryWithMVC.Models.Entity.tbl_member>
 
 @{
     ViewBag.Title = "Üyeler";
@@ -41,5 +43,16 @@
         }
     </tbody>
 </table>
+
+<div class="pagination">
+    @Html.PagedListPager(Model, page => Url.Action("Index", "Member", new { Page = page }),
+        new PagedListRenderOptions
+            {
+                LinkToFirstPageFormat = "<< İlk",
+            LinkToPreviousPageFormat = "< Önceki",
+            LinkToNextPageFormat = "Sonraki >",
+            LinkToLastPageFormat = "Son >>"
+        })
+</div>
 
 <a href="/Member/AddMember/" class="btn btn-outline-primary">Yeni Üye Ekle</a>

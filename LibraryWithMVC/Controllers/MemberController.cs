@@ -1,18 +1,21 @@
 ﻿using LibraryWithMVC.Models.Entity;
 using System.Linq;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace LibraryWithMVC.Controllers
 {
     public class MemberController : Controller
     {
         // GET: Member
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
-                var member = db.tbl_member.ToList();
-                return View(member);
+                //var member = db.tbl_member.ToList();
+                var members = db.tbl_member.ToList().ToPagedList(page, 5);
+                return View(members);
             }
         }
 
