@@ -1,4 +1,5 @@
 ﻿using LibraryWithMVC.Models.Entity;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Web.Mvc;
@@ -19,6 +20,21 @@ namespace LibraryWithMVC.Controllers
         public ActionResult AddBook()
         {
             //SelectList books = db.tbl_book.Select(x => x.tbl_category.ctg_id == x.bk_ctg,);
+            List<SelectListItem> authors = (from x in db.tbl_author.ToList()
+                                            select new SelectListItem
+                                            {
+                                                Text = (x.ath_name + " " + x.ath_surname),
+                                                Value = x.ath_id.ToString()
+                                            }).ToList();
+            ViewBag.Authors = authors;
+
+            List<SelectListItem> categories = (from x in db.tbl_category
+                                               select new SelectListItem
+                                               {
+                                                   Text = x.ctg_name,
+                                                   Value = x.ctg_id.ToString()
+                                               }).ToList();
+            ViewBag.Categories = categories;
 
             return View();
         }
@@ -26,7 +42,9 @@ namespace LibraryWithMVC.Controllers
         [HttpPost]
         public ActionResult AddBook(tbl_book book)
         {
-            return View();
+            db.tbl_book.Add(book);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

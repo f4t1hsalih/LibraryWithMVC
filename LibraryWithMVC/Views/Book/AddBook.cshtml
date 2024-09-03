@@ -19,12 +19,12 @@
 
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.tbl_category.ctg_name, "Kategori")
-        @*@Html.DropDownListFor(x => x.tbl_category.ctg_id, (SelectList)ViewBag.Category, new { @class = "form-control" })*@
+        @Html.DropDownListFor(x => x.tbl_category.ctg_id, (List<SelectListItem>)ViewBag.Categories, new { @class = "form-control" })
     </div>
 
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.tbl_author.ath_name, "Yazar")
-        @*@Html.DropDownListFor(x => x.tbl_author.ath_id, (SelectList)ViewBag.Author, new { @class = "form-control" })*@
+        @Html.DropDownListFor(x => x.tbl_author.ath_id, (List<SelectListItem>)ViewBag.Authors, new { @class = "form-control" })
     </div>
 
     <div class="form-group mt-3">
