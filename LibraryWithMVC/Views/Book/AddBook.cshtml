@@ -1,0 +1,48 @@
+﻿@model LibraryWithMVC.Models.Entity.tbl_book
+
+@{
+    ViewBag.Title = "Kitap Kayıt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kitap Kayıt</h2>
+<hr />
+
+@using (Html.BeginForm("AddBook", "Book", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.bk_id)
+
+    <div class="form-group mt-3">
+        @Html.LabelFor(x => x.bk_name, "Kitap Adı")
+        @Html.TextBoxFor(x => x.bk_name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group mt-3">
+        @Html.LabelFor(x => x.tbl_category.ctg_name, "Kategori")
+        @*@Html.DropDownListFor(x => x.tbl_category.ctg_id, (SelectList)ViewBag.Category, new { @class = "form-control" })*@
+    </div>
+
+    <div class="form-group mt-3">
+        @Html.LabelFor(x => x.tbl_author.ath_name, "Yazar")
+        @*@Html.DropDownListFor(x => x.tbl_author.ath_id, (SelectList)ViewBag.Author, new { @class = "form-control" })*@
+    </div>
+
+    <div class="form-group mt-3">
+        @Html.LabelFor(x => x.bk_year_of_publication, "Yayın Yılı")
+        @Html.TextBoxFor(x => x.bk_year_of_publication, new { @class = "form-control", type = "number" })
+    </div>
+
+    <div class="form-group mt-3">
+        @Html.LabelFor(x => x.bk_publishing_house, "Yayınevi")
+        @Html.TextBoxFor(x => x.bk_publishing_house, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group mt-3">
+        @Html.LabelFor(x => x.bk_page, "Sayfa Sayısı")
+        @Html.TextBoxFor(x => x.bk_page, new { @class = "form-control", type = "number" })
+    </div>
+
+    <div class="form-group mt-3">
+        <button type="submit" class="btn btn-primary">Ekle</button>
+    </div>
+}
