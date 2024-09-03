@@ -1,0 +1,35 @@
+﻿@model List<LibraryWithMVC.Models.Entity.tbl_staff>
+
+@{
+    ViewBag.Title = "Personeller";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Personel Listesi</h2>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Personel Adı</th>
+            <th>Personel Soyadı</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.stf_id</td>
+                <td>@item.stf_name</td>
+                <td>@item.stf_surname</td>
+                <td><a href="/Staff/EditStaff/@item.stf_id" class="btn btn-primary">Güncelle</a></td>
+                <td><a href="/Staff/DeleteStaff/@item.stf_id" class="btn btn-danger">Sil</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Staff/AddStaff/" class="btn btn-outline-primary">Yeni Personel Ekle</a>
