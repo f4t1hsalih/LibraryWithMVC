@@ -45,5 +45,14 @@ namespace LibraryWithMVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        //GET: DeleteBook
+        public ActionResult DeleteBook(int id)
+        {
+            var book = db.tbl_book.Find(id);
+            db.tbl_book.Remove(book);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
