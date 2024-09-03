@@ -8,17 +8,9 @@ namespace LibraryWithMVC.Controllers
     public class BookController : Controller
     {
         DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities();
-        // GET: Book
-        public ActionResult Index()
-        {
-            return View(db.tbl_book.ToList());
-        }
 
-        // GET:AddBook
-        [HttpGet]
-        public ActionResult AddBook()
+        public void DropDownValues()
         {
-            //SelectList books = db.tbl_book.Select(x => x.tbl_category.ctg_id == x.bk_ctg,);
             List<SelectListItem> authors = (from x in db.tbl_author.ToList()
                                             select new SelectListItem
                                             {
@@ -34,6 +26,19 @@ namespace LibraryWithMVC.Controllers
                                                    Value = x.ctg_id.ToString()
                                                }).ToList();
             ViewBag.Categories = categories;
+        }
+
+        // GET: Book
+        public ActionResult Index()
+        {
+            return View(db.tbl_book.ToList());
+        }
+
+        // GET:AddBook
+        [HttpGet]
+        public ActionResult AddBook()
+        {
+            DropDownValues();
 
             return View();
         }
@@ -41,6 +46,7 @@ namespace LibraryWithMVC.Controllers
         [HttpPost]
         public ActionResult AddBook(tbl_book book)
         {
+            book.bk_status = true;
             db.tbl_book.Add(book);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -51,6 +57,23 @@ namespace LibraryWithMVC.Controllers
         {
             var book = db.tbl_book.Find(id);
             db.tbl_book.Remove(book);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        //GET :EditBook
+        [HttpGet]
+        public ActionResult EditBook(int id)
+        {
+            DropDownValues();
+
+            var values = db.tbl_book.Find(id);
+            return View(values);
+        }
+        [HttpPost]
+        public ActionResult EditBook(tbl_book book)
+        {
+            db.Entry(book).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
