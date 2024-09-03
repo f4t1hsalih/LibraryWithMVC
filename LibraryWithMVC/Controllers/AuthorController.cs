@@ -32,5 +32,17 @@ namespace LibraryWithMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: Delete Author
+        public ActionResult DeleteAuthor(int id)
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                tbl_author author = db.tbl_author.Find(id);
+                db.tbl_author.Remove(author);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }
