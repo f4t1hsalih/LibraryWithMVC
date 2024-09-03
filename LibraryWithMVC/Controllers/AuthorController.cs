@@ -44,5 +44,26 @@ namespace LibraryWithMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: Edit Author
+        [HttpGet]
+        public ActionResult EditAuthor(int id)
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                tbl_author author = db.tbl_author.Find(id);
+                return View(author);
+            }
+        }
+        [HttpPost]
+        public ActionResult EditAuthor(tbl_author author)
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                db.Entry(author).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }
