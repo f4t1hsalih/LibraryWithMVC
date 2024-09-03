@@ -43,5 +43,38 @@ namespace LibraryWithMVC.Controllers
                 }
             }
         }
+
+        // GET: DeleteMember
+        public ActionResult DeleteMember(int id)
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                tbl_member member = db.tbl_member.Find(id);
+                db.tbl_member.Remove(member);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
+        // GET: EditMember
+        [HttpGet]
+        public ActionResult EditMember(int id)
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                tbl_member member = db.tbl_member.Find(id);
+                return View(member);
+            }
+        }
+        [HttpPost]
+        public ActionResult EditMember(tbl_member member)
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                db.Entry(member).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
