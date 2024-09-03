@@ -11,7 +11,9 @@ namespace LibraryWithMVC.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbl_member
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,17 +22,26 @@ namespace LibraryWithMVC.Models.Entity
             this.tbl_movement = new HashSet<tbl_movement>();
             this.tbl_punishment = new HashSet<tbl_punishment>();
         }
-    
+
         public int mmb_id { get; set; }
+        [Required(ErrorMessage ="Ýsim Alaný Boþ Býrakýlamaz!")]
+        [StringLength(20, ErrorMessage = "Ad 20 karekteri geçemez!")]
         public string mmb_name { get; set; }
+        [StringLength(20, ErrorMessage = "Soyad 20 karekteri geçemez!")]
         public string mmb_surname { get; set; }
+        [EmailAddress]
         public string mmb_email { get; set; }
+        [StringLength(20, ErrorMessage = "Kullanýcý Adý 20 karekteri geçemez!")]
         public string mmb_username { get; set; }
+        [PasswordPropertyText]
+        [StringLength(20, ErrorMessage = "Þifre 20 karekteri geçemez!")]
         public string mmb_password { get; set; }
         public string mmb_photo { get; set; }
+        [StringLength(20, ErrorMessage = "Telefon numarasý 20 karekteri geçemez!")]
         public string mmb_tel { get; set; }
+        [StringLength(20, ErrorMessage = "Okul Ýsmi 100 karekteri geçemez!")]
         public string mmb_school { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_movement> tbl_movement { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
