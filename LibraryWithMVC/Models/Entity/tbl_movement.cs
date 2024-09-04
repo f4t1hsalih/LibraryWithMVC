@@ -26,6 +26,8 @@ namespace LibraryWithMVC.Models.Entity
         public Nullable<byte> mvm_stf { get; set; }
         public Nullable<System.DateTime> mvm_receipt_date { get; set; }
         public Nullable<System.DateTime> mvm_delivery_date { get; set; }
+        public Nullable<bool> mvm_status { get; set; }
+        public Nullable<System.DateTime> mvm_return_date { get; set; }
     
         public virtual tbl_book tbl_book { get; set; }
         public virtual tbl_member tbl_member { get; set; }

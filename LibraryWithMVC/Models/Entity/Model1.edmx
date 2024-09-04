@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB_LibraryWithMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB_LibraryWithMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -68,6 +68,8 @@
           <Property Name="mvm_stf" Type="tinyint" />
           <Property Name="mvm_receipt_date" Type="smalldatetime" />
           <Property Name="mvm_delivery_date" Type="smalldatetime" />
+          <Property Name="mvm_return_date" Type="smalldatetime" />
+          <Property Name="mvm_status" Type="bit" />
         </EntityType>
         <EntityType Name="tbl_punishment">
           <Key>
@@ -219,8 +221,7 @@
             <End Role="tbl_punishment" EntitySet="tbl_punishment" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_LibraryWithMVCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -298,6 +299,8 @@
           <NavigationProperty Name="tbl_member" Relationship="Self.FK_tbl_movement_tbl_member" FromRole="tbl_movement" ToRole="tbl_member" />
           <NavigationProperty Name="tbl_staff" Relationship="Self.FK_tbl_movement_tbl_staff" FromRole="tbl_movement" ToRole="tbl_staff" />
           <NavigationProperty Name="tbl_punishment" Relationship="Self.FK_tbl_punishment_tbl_movement" FromRole="tbl_movement" ToRole="tbl_punishment" />
+          <Property Name="mvm_status" Type="Boolean" />
+          <Property Name="mvm_return_date" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="tbl_punishment">
           <Key>
@@ -519,6 +522,8 @@
           <EntitySetMapping Name="tbl_movement">
             <EntityTypeMapping TypeName="DB_LibraryWithMVCModel.tbl_movement">
               <MappingFragment StoreEntitySet="tbl_movement">
+                <ScalarProperty Name="mvm_return_date" ColumnName="mvm_return_date" />
+                <ScalarProperty Name="mvm_status" ColumnName="mvm_status" />
                 <ScalarProperty Name="mvm_id" ColumnName="mvm_id" />
                 <ScalarProperty Name="mvm_bk" ColumnName="mvm_bk" />
                 <ScalarProperty Name="mvm_mmb" ColumnName="mvm_mmb" />

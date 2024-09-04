@@ -1,0 +1,88 @@
+﻿/* Genel tablo stili */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+    /* Başlık stili */
+    .table thead th {
+        background-color: #4e73df;
+        color: #ffffff;
+        text-align: center;
+        padding: 12px;
+        text-transform: uppercase;
+        font-weight: 500;
+        border-bottom: 2px solid #4e73df;
+    }
+
+    /* Gövde stili */
+    .table tbody tr {
+        border-bottom: 1px solid #dddddd;
+        transition: background-color 0.3s ease;
+    }
+
+        .table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+    .table tbody td {
+        padding: 12px;
+        border-right: 1px solid #dddddd;
+    }
+
+        .table tbody td:last-child {
+            border-right: none;
+        }
+
+    /* Satırların arka planı ve hover efekti */
+    .table tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+/* Güncelle ve Sil düğmeleri için minimal stil */
+.btn-primary {
+    background-color: #1cc88a;
+    border: none;
+    padding: 8px 16px;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 13px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-danger {
+    background-color: #e74a3b;
+    border: none;
+    padding: 8px 16px;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 13px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover efekti düğmeler */
+.btn-primary:hover {
+    background-color: #17a673;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-danger:hover {
+    background-color: #c9302c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

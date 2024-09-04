@@ -1,0 +1,48 @@
+﻿@model LibraryWithMVC.Models.Entity.tbl_movement
+
+@{
+    ViewBag.Title = "Kitap Geri Alma";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kitap Geri Alma</h2>
+<hr />
+
+@using (Html.BeginForm("ReturnTheBookClick", "Borrow", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.mvm_id)
+
+    <div class="form-group mt-3">
+        @Html.LabelFor(x => x.mvm_mmb, "Üye Adı")
+        @Html.TextBox("MemberName", (string)ViewBag.MemberName, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div class="form-group mt-3">
+        @Html.LabelFor(x => x.mvm_bk, "Kitap Adı")
+        @Html.TextBox("BookName", (string)ViewBag.BookName, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div class="form-group mt-3">
+        @Html.LabelFor(x => x.mvm_stf, "Personel Adı")
+        @Html.TextBox("StaffName", (string)ViewBag.StaffName, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div class="form-group mt-3">
+        @Html.Label("Ödünç Tarihi")
+        @Html.TextBoxFor(x => x.mvm_receipt_date, "{0:dd.MM.yyyy}", new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div class="form-group mt-3">
+        @Html.Label("Geri Alış Tarihi")
+        @Html.TextBoxFor(x => x.mvm_delivery_date, "{0:dd.MM.yyyy}", new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div class="form-group mt-3">
+        @Html.Label("Geri Verdiği Tarihi")
+        @Html.TextBox("returnDate", DateTime.Now.ToString("yyyy-MM-dd"), new { @class = "form-control", type = "date" })
+    </div>
+
+    <div class="form-group mt-3 text-center">
+        <button type="submit" class="btn btn-primary">Kitabı Geri Al</button>
+    </div>
+}

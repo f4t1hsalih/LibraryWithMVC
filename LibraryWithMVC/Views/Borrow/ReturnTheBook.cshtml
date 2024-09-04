@@ -25,12 +25,12 @@
         {
             <tr>
                 <td>@item.mvm_id</td>
-                <td>@(item.tbl_book != null ? item.tbl_book.bk_name : "Kitap bilgisi yok")</td>
-                <td>@(item.tbl_member != null ? item.tbl_member.mmb_name : "Kullanıcı bilgisi yok")</td>
-                <td>@(item.tbl_staff != null ? item.tbl_staff.stf_name : "Personel bilgisi yok")</td>
+                <td>@(item.tbl_book != null ? item.tbl_book.bk_name: "Kitap bilgisi yok")</td>
+                <td>@(item.tbl_member != null ? item.tbl_member.mmb_name + " " + item.tbl_member.mmb_surname : "Kullanıcı bilgisi yok")</td>
+                <td>@(item.tbl_staff != null ? item.tbl_staff.stf_name + " " + item.tbl_staff.stf_surname : "Personel bilgisi yok")</td>
                 <td>@item.mvm_receipt_date.Value.ToString("dd MMMM yyyy")</td>
                 <td>@item.mvm_delivery_date.Value.ToString("dd MMMM yyyy")</td>
-                <td><a href="/Borrow/ReturnTheBook/@item.mvm_id" class="btn btn-outline-success">Teslim Al</a></td>
+                <td><a href="/Borrow/ReturnTheBookClick/@item.mvm_id" class="btn btn-outline-success">Teslim Al</a></td>
             </tr>
         }
     </tbody>

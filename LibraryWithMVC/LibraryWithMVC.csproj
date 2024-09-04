@@ -205,6 +205,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\table_style.css" />
     <Content Include="Content\tasarim.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -271,6 +272,7 @@
     <Content Include="Views\Member\EditMember.cshtml" />
     <Content Include="Views\Borrow\Lend.cshtml" />
     <Content Include="Views\Borrow\ReturnTheBook.cshtml" />
+    <Content Include="Views\Borrow\ReturnTheBookClick.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
