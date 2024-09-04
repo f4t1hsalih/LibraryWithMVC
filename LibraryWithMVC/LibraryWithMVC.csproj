@@ -136,6 +136,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\BorrowController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
@@ -268,6 +269,7 @@
     <Content Include="Views\Member\Index.cshtml" />
     <Content Include="Views\Member\AddMember.cshtml" />
     <Content Include="Views\Member\EditMember.cshtml" />
+    <Content Include="Views\Borrow\Lend.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

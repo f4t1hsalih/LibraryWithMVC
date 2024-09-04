@@ -1,0 +1,33 @@
+﻿@model LibraryWithMVC.Models.Entity.tbl_movement
+
+@{
+    ViewBag.Title = "Ödünç Ver";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ödünç Ver</h2>
+<hr />
+
+@using (Html.BeginForm("Lend", "Borrow", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.mvm_id)
+
+    <div class="form-group mt-3">
+        @Html.LabelFor(x => x.mvm_mmb, "Üye Adı")
+        @Html.DropDownListFor(x => x.mvm_stf, (List<SelectListItem>)ViewBag.Members, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group mt-3">
+        @Html.LabelFor(x => x.mvm_bk, "Kitap Adı")
+        @Html.DropDownListFor(x => x.mvm_stf, (List<SelectListItem>)ViewBag.Books, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group mt-3">
+        @Html.LabelFor(x => x.mvm_stf, "Personel Adı")
+        @Html.DropDownListFor(x => x.mvm_stf, (List<SelectListItem>)ViewBag.Staff, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group mt-3">
+        <button type="submit" class="btn btn-primary">Kitabı Ödünç Ver</button>
+    </div>
+}
