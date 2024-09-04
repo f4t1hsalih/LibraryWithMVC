@@ -2,19 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace LibraryWithMVC.Controllers
 {
     public class BorrowController : Controller
     {
-        // GET: Borrow
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         //Kitap Ödünç Ekranı
         [HttpGet]
         public ActionResult Lend()
@@ -63,7 +56,15 @@ namespace LibraryWithMVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Lend");
             }
+        }
 
+        //Teslim Alma
+        public ActionResult ReturnTheBook()
+        {
+            DB_LibraryWithMVCEntities dba = new DB_LibraryWithMVCEntities();
+
+            var movements = dba.tbl_movement.ToList();
+            return View(movements);
         }
     }
 }

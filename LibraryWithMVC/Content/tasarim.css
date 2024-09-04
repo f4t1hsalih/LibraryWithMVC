@@ -1,130 +1,136 @@
 ﻿/* Genel stil ayarları */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* Tüm elementlerin varsayılan margin değerini sıfırlar. Bu, her şeyin hizalanmasını başlangıçta tutar. */
+    padding: 0; /* Tüm elementlerin varsayılan padding değerini sıfırlar. Bu, içerik ve kenar boşluklarının tutarlı olmasını sağlar. */
+    box-sizing: border-box; /* Box modelinde, padding ve border'ın genişlik ve yüksekliğe dahil edilmesini sağlar. Bu, elementlerin boyutlarının daha tahmin edilebilir olmasını sağlar. */
 }
 
 body {
-    background-color: #f4f6f8;
-    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6f8; /* Sayfanın arka plan rengini açık gri-bej tonunda yapar. Bu, sayfanın arka planının hoş bir renk tonunda olmasını sağlar. */
+    font-family: 'Poppins', sans-serif; /* Sayfanın genel fontunu Poppins olarak ayarlar. Eğer Poppins fontu mevcut değilse, sans-serif fontu kullanılır. Bu, metinlerin okunabilirliğini artırır. */
 }
 
 /* Yan Menü (Sidebar) */
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 260px;
-    height: 100%;
-    background-color: #2c3e50;
-    padding-top: 20px;
-    transition: width 0.3s;
-    overflow-y: auto;
+    position: fixed; /* Yan menüyü sayfanın sabit bir konumuna yerleştirir, yani kaydırıldığında menü sabit kalır. */
+    top: 0; /* Menü, sayfanın üst kısmına hizalanır. */
+    left: 0; /* Menü, sayfanın sol kenarına hizalanır. */
+    width: 270px; /* Menü genişliğini 270 piksel olarak ayarlar. */
+    height: 100%; /* Menü yüksekliğini, sayfanın tamamı kadar yapar. */
+    background-color: #2c3e50; /* Menü arka plan rengini koyu gri-mavi tonunda ayarlar. */
+    padding-top: 20px; /* Menü içindeki içeriğin üst kısmından 20 piksel boşluk bırakır. */
+    transition: width 0.3s; /* Menü genişliği değiştiğinde, geçişin 0.3 saniye sürecek şekilde yumuşak olmasını sağlar. */
+    overflow-y: auto; /* Menü içeriği, yüksekliği aştığında kaydırılabilir. */
+    z-index: 1000; /* Menü, diğer tüm içeriklerin üzerinde görünür. */
 }
 
     .sidebar .logo {
-        text-align: center;
-        margin-bottom: 30px;
-        color: #ecf0f1;
-        font-size: 24px;
-        font-weight: 600;
+        text-align: center; /* Logo metnini menü genişliği boyunca ortalar. */
+        margin-bottom: 30px; /* Logo ile menü altındaki diğer öğeler arasında 30 piksel boşluk bırakır. */
+        color: #ecf0f1; /* Logo metninin rengini açık gri-beyaz yapar. */
+        font-size: 24px; /* Logo metninin font büyüklüğünü 24 piksel yapar. */
+        font-weight: 600; /* Logo metninin kalınlığını artırır. */
     }
 
     .sidebar ul {
-        list-style: none;
+        list-style: none; /* Menü listesindeki varsayılan işaretleri (bullet points) kaldırır. */
     }
 
         .sidebar ul li {
-            position: relative;
+            position: relative; /* Menü öğelerinin konumlarını kontrol eder. */
         }
 
             .sidebar ul li a {
-                display: flex;
-                align-items: center;
-                padding: 13px 0px;
-                color: #f4f6f8;
-                text-decoration: none;
-                font-size: 16px;
-                transition: background-color 0.3s ease, color 0.3s ease;
+                display: flex; /* Menü bağlantılarını esnek bir düzenle yerleştirir. */
+                align-items: center; /* Menü bağlantısı içindeki öğeleri dikey olarak ortalar. */
+                padding: 13px 0px; /* Menü bağlantısının üst ve altına 13 piksel boşluk bırakır. */
+                color: #f4f6f8; /* Menü bağlantısının metin rengini açık gri-beyaz yapar. */
+                text-decoration: none; /* Menü bağlantılarındaki alt çizgileri kaldırır. */
+                font-size: 16px; /* Menü bağlantı metninin font boyutunu 16 piksel yapar. */
+                transition: background-color 0.3s ease, color 0.3s ease; /* Arka plan rengi ve metin renginin değişiminde 0.3 saniyelik yumuşak bir geçiş efekti ekler. */
             }
 
                 .sidebar ul li a:hover {
-                    background-color: #34495e;
-                    color: #fff;
+                    background-color: #34495e; /* Menü bağlantısının üzerine gelindiğinde arka plan rengini daha koyu mavi-gri yapar. */
+                    color: #fff; /* Menü bağlantısının üzerine gelindiğinde metin rengini beyaz yapar. */
                 }
 
                 .sidebar ul li a .material-icons {
-                    font-size: 24px;
-                    margin-right: 15px;
+                    font-size: 24px; /* Menü simgelerinin font boyutunu 24 piksel yapar. */
+                    margin-right: 15px; /* Menü simgeleri ile metin arasına 15 piksel boşluk bırakır. */
                 }
 
 /* Açılır Menü (Submenu) */
 .submenu {
-    display: none;
-    list-style: none;
-    padding-left: 20px;
+    display: none; /* Alt menüyü varsayılan olarak gizler. */
+    list-style: none; /* Alt menüdeki varsayılan işaretleri (bullet points) kaldırır. */
+    padding-left: 15px; /* Alt menü öğelerinin sol tarafında 15 piksel boşluk bırakır. */
+    /*background-color: #34495e;*/ /* Alt menünün arka plan rengini koyu mavi-gri yapar. */
 }
 
     .submenu li {
-        padding: 10px 0;
+        padding: 5px 0; /* Alt menü öğelerinin üst ve alt kısmına 5 piksel boşluk bırakır. */
     }
 
         .submenu li a {
-            display: flex;
-            align-items: center;
-            color: #ecf0f1;
-            text-decoration: none;
+            display: flex; /* Alt menü bağlantılarını esnek bir düzenle yerleştirir. */
+            align-items: center; /* Alt menü bağlantısı içindeki öğeleri dikey olarak ortalar. */
+            color: #ecf0f1; /* Alt menü bağlantılarının metin rengini açık gri-beyaz yapar. */
+            text-decoration: none; /* Alt menü bağlantılarındaki alt çizgileri kaldırır. */
+            padding: 5px 0; /* Alt menü bağlantısının üst ve alt kısmına 5 piksel boşluk bırakır. */
+            transition: background-color 0.3s ease; /* Arka plan renginin değişiminde 0.3 saniyelik yumuşak bir geçiş efekti ekler. */
         }
 
             .submenu li a:hover {
-                background-color: #3b556e;
+                background-color: #3b556e; /* Alt menü bağlantısının üzerine gelindiğinde arka plan rengini daha açık mavi-gri yapar. */
             }
 
-.sidebar ul li.active > .submenu {
-    display: block;
+/* Alt menünün açılması için aktif sınıf tanımlaması */
+.sidebar ul li.active > .submenu { /* Bu seçici, yan menüdeki bir li öğesine .active sınıfı eklendiğinde (genellikle kullanıcı bir menü öğesine tıkladığında), alt menünün (.submenu) görünmesini sağlar. Yani, .active sınıfı olan bir liste öğesi varsa, bu öğenin altında bulunan alt menü gösterilir.*/
+    display: block; /* 'active' sınıfına sahip menü öğesi için alt menüyü görünür yapar. */
 }
 
 /* İçerik Alanı (Main Content) */
 .main-content {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin-left: 260px;
-    padding: 20px;
-    min-height: 100vh;
-    transition: margin-left 0.3s;
-    background-color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* İçerik alanında kullanılacak fontları belirtir. İlk olarak Helvetica Neue, eğer yoksa Helvetica, yoksa Arial, en son olarak sans-serif fontu kullanılır. */
+    margin-left: 270px; /* İçerik alanının sol tarafında yan menü genişliği kadar (270px) boşluk bırakır. Bu, yan menünün içeriği kaplamamasını sağlar. */
+    padding: 20px; /* İçerik alanının etrafına her tarafta 20px boşluk bırakır. Bu, içeriğin kenarlarından uzaklaşmasını sağlar ve daha iyi bir görsel düzen sağlar. */
+    min-height: 100vh; /* İçerik alanının yüksekliğini en az sayfa yüksekliği kadar yapar. Bu, içeriğin her zaman ekran yüksekliğini kapsamasını sağlar. */
+    transition: margin-left 0.3s; /* Sol margin değişiklikleri için 0.3 saniyelik bir geçiş efekti ekler. Menü genişliğinde değişiklik olduğunda içerik alanının sol margin’i yavaşça değişir. */
+    background-color: #fff; /* İçerik alanının arka plan rengini beyaz yapar. Bu, içerik alanının temiz ve okunabilir olmasını sağlar. */
+    z-index: 0; /* İçerik alanının z-index değerini 0 yapar. Bu, yan menü (z-index: 1000) gibi diğer elemanların üstünde olmamasını sağlar. İçerik alanı, menüden arka planda kalır. */
 }
 
 /* Responsive Tasarım */
 @media (max-width: 768px) {
     .sidebar {
-        width: 200px;
+        width: 200px; /* Ekran genişliği 768px veya daha küçük olduğunda, yan menünün genişliğini 200 piksel yapar. */
     }
 
     .main-content {
-        margin-left: 200px;
+        margin-left: 200px; /* İçerik alanının sol tarafındaki boşluğu yan menü genişliğine göre ayarlar. */
     }
 }
 
 @media (max-width: 576px) {
     .sidebar {
-        width: 60px;
+        width: 60px; /* Ekran genişliği 576px veya daha küçük olduğunda, yan menünün genişliğini 60 piksel yapar. */
     }
 
         .sidebar .logo,
         .sidebar ul li a span {
-            display: none;
+            display: none; /* Yan menüdeki logo ve metinleri gizler. Bu, ekranı daha fazla yer açmak için kullanılır. */
         }
 
         .sidebar ul li a {
-            justify-content: center;
+            justify-content: center; /* Menü bağlantılarını yatay olarak ortalar. */
         }
 
         .sidebar ul li .submenu a {
-            padding: 12px 20px;
+            padding: 12px 20px; /* Alt menü bağlantılarının iç boşluklarını (padding) 12 piksel üst ve alt, 20 piksel sağ ve sol yapar. */
         }
 
     .main-content {
-        margin-left: 60px;
+        margin-left: 60px; /* İçerik alanının sol tarafındaki boşluğu yan menü genişliğine göre ayarlar. */
     }
 }

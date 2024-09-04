@@ -270,6 +270,7 @@
     <Content Include="Views\Member\AddMember.cshtml" />
     <Content Include="Views\Member\EditMember.cshtml" />
     <Content Include="Views\Borrow\Lend.cshtml" />
+    <Content Include="Views\Borrow\ReturnTheBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

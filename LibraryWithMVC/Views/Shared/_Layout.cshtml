@@ -64,13 +64,13 @@
                     <li>
                         <a href="/Borrow/Lend/">
                             <span class="material-icons">arrow_forward</span>
-                            <span>Ödünç Kitap Ver</span>
+                            <span>Kitap Ver</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#oduncal">
+                        <a href="/Borrow/ReturnTheBook/">
                             <span class="material-icons">arrow_back</span>
-                            <span>Ödünç Kitap Al</span>
+                            <span>Geri Al</span>
                         </a>
                     </li>
                 </ul>
@@ -114,15 +114,38 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+            // Geçerli URL'yi al
+            var currentUrl = window.location.href;
 
-            submenuToggles.forEach(function (toggle) {
-                toggle.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    this.classList.toggle('active');
+            // Tüm menü öğelerini kontrol et
+            document.querySelectorAll('.sidebar ul li a').forEach(function (link) {
+                if (link.href === currentUrl) {
+                    // Alt menü öğesi ise
+                    if (link.closest('.submenu')) {
+                        link.closest('.submenu').style.display = 'block';
+                        link.closest('.submenu').parentElement.classList.add('active');
+                    }
+                    // Üst menü öğesi ise
+                    else {
+                        link.parentElement.classList.add('active');
+                    }
+                }
+            });
+
+            // Ana menü öğelerine tıklama olayını ekle
+            document.querySelectorAll('.sidebar ul li a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    var parentLi = link.parentElement;
+                    var submenu = parentLi.querySelector('.submenu');
+
+                    if (submenu) {
+                        parentLi.classList.toggle('active');
+                        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                    }
                 });
             });
         });
+
     </script>
 </body>
 </html>
