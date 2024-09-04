@@ -14,17 +14,26 @@
 
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.mvm_mmb, "Üye Adı")
-        @Html.DropDownListFor(x => x.mvm_stf, (List<SelectListItem>)ViewBag.Members, new { @class = "form-control" })
+        @Html.DropDownListFor(x => x.mvm_mmb, (List<SelectListItem>)ViewBag.Members, new { @class = "form-control" })
     </div>
 
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.mvm_bk, "Kitap Adı")
-        @Html.DropDownListFor(x => x.mvm_stf, (List<SelectListItem>)ViewBag.Books, new { @class = "form-control" })
+        @Html.DropDownListFor(x => x.mvm_bk, (List<SelectListItem>)ViewBag.Books, new { @class = "form-control" })
     </div>
 
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.mvm_stf, "Personel Adı")
         @Html.DropDownListFor(x => x.mvm_stf, (List<SelectListItem>)ViewBag.Staff, new { @class = "form-control" })
+    </div>
+    <div class="form-group mt-3">
+        @Html.Label("Ödünç Tarihi")
+        @Html.TextBox("mvm_receipt_date", DateTime.Now.ToString("dd-MM-yyyy"), new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div class="form-group mt-3">
+        @Html.Label("Geri Alış Tarihi")
+        @Html.TextBox("mvm_receipt_date", DateTime.Now.AddDays(30).ToString("dd-MM-yyyy"), new { @class = "form-control", @readonly = "readonly" })
     </div>
 
     <div class="form-group mt-3">

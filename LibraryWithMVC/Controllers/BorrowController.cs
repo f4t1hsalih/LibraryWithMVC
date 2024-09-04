@@ -52,5 +52,18 @@ namespace LibraryWithMVC.Controllers
             }
 
         }
+        [HttpPost]
+        public ActionResult Lend(tbl_movement mov)
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                mov.mvm_receipt_date = DateTime.Now.Date;
+                mov.mvm_delivery_date = DateTime.Now.Date.AddDays(30);
+                db.tbl_movement.Add(mov);
+                db.SaveChanges();
+                return RedirectToAction("Lend");
+            }
+
+        }
     }
 }
