@@ -1,0 +1,40 @@
+﻿@model List<LibraryWithMVC.Models.Entity.tbl_movement>
+
+@{
+    ViewBag.Title = "İşlemler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>İşlemler</h2>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Kitap</th>
+            <th>Kullanıcı</th>
+            <th>Personel</th>
+            <th>Ödünç Verme Tarihi</th>
+            <th>Geri Alma Tarihi</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.mvm_id</td>
+                <td>@(item.tbl_book != null ? item.tbl_book.bk_name: "Kitap bilgisi yok")</td>
+                <td>@(item.tbl_member != null ? item.tbl_member.mmb_name + " " + item.tbl_member.mmb_surname : "Kullanıcı bilgisi yok")</td>
+                <td>@(item.tbl_staff != null ? item.tbl_staff.stf_name + " " + item.tbl_staff.stf_surname : "Personel bilgisi yok")</td>
+                <td>@item.mvm_receipt_date.Value.ToString("dd MMMM yyyy")</td>
+                <td>@(item.mvm_return_date != null ? item.mvm_return_date.Value.ToString("dd MMMM yyyy"): "Kitap Henüz Geri Verilmemiş")</td>
+                <td class="text-center align-middle">
+                    <a href="/#/@item.mvm_id" class="btn btn-outline-dark">Detaylar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

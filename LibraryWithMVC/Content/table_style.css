@@ -21,6 +21,7 @@
         text-transform: uppercase;
         font-weight: 500;
         border-bottom: 2px solid #4e73df;
+        letter-spacing: 0.5px; /* Harfler arasında biraz boşluk */
     }
 
     /* Gövde stili */
@@ -36,18 +37,33 @@
     .table tbody td {
         padding: 12px;
         border-right: 1px solid #dddddd;
+        text-align: center; /* Hücre içeriğini ortala */
+        vertical-align: middle; /* İçeriği dikeyde ortala */
     }
 
         .table tbody td:last-child {
             border-right: none;
         }
 
-    /* Satırların arka planı ve hover efekti */
+        .table tbody td a {
+            display: inline-block;
+            padding: 8px 16px;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 8px;
+        }
+
     .table tbody tr:hover {
         background-color: #f1f1f1;
     }
 
-/* Güncelle ve Sil düğmeleri için minimal stil */
+    .table tbody td a:hover {
+        background-color: #4e73df; /* Hover efektinde buton arka plan rengi */
+        color: #ffffff; /* Hoverda beyaz renk */
+    }
+
+/* Güncelle ve Sil düğmeleri için eski minimal stil */
 .btn-primary {
     background-color: #1cc88a;
     border: none;
@@ -56,7 +72,6 @@
     cursor: pointer;
     border-radius: 30px;
     font-size: 13px;
-    vertical-align: middle;
     text-transform: uppercase;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -70,7 +85,6 @@
     cursor: pointer;
     border-radius: 30px;
     font-size: 13px;
-    vertical-align: middle;
     text-transform: uppercase;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -85,4 +99,11 @@
 .btn-danger:hover {
     background-color: #c9302c;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Butonların ortalanması */
+.btn-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
