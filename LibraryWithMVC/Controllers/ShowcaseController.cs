@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using LibraryWithMVC.Models.Entity;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace LibraryWithMVC.Controllers
 {
@@ -8,7 +10,9 @@ namespace LibraryWithMVC.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Vitrin Paneli";
-            return View();
+            DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities();
+            var books = db.tbl_book.ToList();
+            return View(books);
         }
     }
 }

@@ -9736,32 +9736,45 @@ a.text-dark:hover, a.text-dark:focus {
   margin-bottom: -30px;
 }
 
-.portfolio .portfolio-item {
-  cursor: pointer;
-  position: relative;
-  display: block;
-  max-width: 25rem;
-  margin-bottom: 30px;
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
+    .portfolio .portfolio-item {
+        cursor: pointer;
+        position: relative;
+        display: block;
+        max-width: 25rem; /* Konteyner geniþliðinin bir sýnýrý */
+        margin-bottom: 30px;
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
 
-.portfolio .portfolio-item .portfolio-item-caption {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: all 0.2s ease-in-out;
-  opacity: 0;
-  background-color: rgba(26, 188, 156, 0.9);
-}
+        .portfolio .portfolio-item img {
+            width: auto; /* Geniþliði otomatik ayarlar */
+            height: 400px; /* Sabit yükseklik */
+            object-fit: cover; /* Resmi konteynerin tamamýný kaplar ve gerekirse kýrpar */
+        }
 
-.portfolio .portfolio-item .portfolio-item-caption:hover {
-  opacity: 1;
-}
+        .portfolio .portfolio-item .portfolio-item-caption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Kapak öðesi konteyner geniþliðine uyum saðlar */
+            height: 100%; /* Kapak öðesi konteyner yüksekliðine uyum saðlar */
+            transition: all 0.2s ease-in-out;
+            opacity: 0;
+            background-color: rgba(26, 188, 156, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.portfolio .portfolio-item .portfolio-item-caption .portfolio-item-caption-content {
-  font-size: 1.5rem;
-}
+        .portfolio .portfolio-item:hover .portfolio-item-caption {
+            opacity: 1; /* Kapak öðesi üzerine gelindiðinde görünür hale gelir */
+        }
+
+        .portfolio .portfolio-item .portfolio-item-caption .portfolio-item-caption-content {
+            font-size: 1.5rem;
+            color: #fff; /* Ýçerik metni beyaz renkte görünür */
+        }
+
 
 .portfolio-modal .portfolio-modal-title {
   font-size: 2.25rem;
