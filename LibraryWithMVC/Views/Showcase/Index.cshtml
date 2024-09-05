@@ -134,33 +134,34 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                    @using (Html.BeginForm("Index", "Showcase", FormMethod.Post))
+                    {
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                <label>Ad Soyad</label>
-                                <input class="form-control" id="name" type="text" placeholder="Ad Soyad" required>
-                                <p class="help-block text-danger"></p>
+                                @Html.Label("cmm_name", "Ad Soyad")
+                                @Html.TextBox("cmm_name", null, new { @class = "form-control", placeholder = "Ad Soyad", id = "cmm_name", required = "required" })
+                                @Html.ValidationMessage("cmm_name", "", new { @class = "help-block text-danger" })
                             </div>
                         </div>
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                <label>Email Adresi</label>
-                                <input class="form-control" id="email" type="email" placeholder="Email Adresi" required>
-                                <p class="help-block text-danger"></p>
+                                @Html.Label("cmm_email", "Email Adresi")
+                                @Html.TextBox("cmm_email", null, new { @class = "form-control", placeholder = "Email Adresi", id = "cmm_email", type = "email", required = "required" })
+                                @Html.ValidationMessage("cmm_email", "", new { @class = "help-block text-danger" })
                             </div>
                         </div>
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                <label>Telefon Numarası</label>
-                                <input class="form-control" id="phone" type="tel" placeholder="Telefon Numarası" required>
-                                <p class="help-block text-danger"></p>
+                                @Html.Label("cmm_subject", "Konu")
+                                @Html.TextBox("cmm_subject", null, new { @class = "form-control", placeholder = "Konu", id = "cmm_subject", required = "required" })
+                                @Html.ValidationMessage("cmm_subject", "", new { @class = "help-block text-danger" })
                             </div>
                         </div>
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                <label>Mesaj</label>
-                                <textarea class="form-control" id="message" rows="5" placeholder="Mesaj" required></textarea>
-                                <p class="help-block text-danger"></p>
+                                @Html.Label("cmm_message", "Mesaj")
+                                @Html.TextArea("cmm_message", null, new { @class = "form-control", placeholder = "Mesaj", id = "cmm_message", rows = "5", required = "required" })
+                                @Html.ValidationMessage("cmm_message", "", new { @class = "help-block text-danger" })
                             </div>
                         </div>
                         <br>
@@ -168,7 +169,8 @@
                         <div class="form-group float-right">
                             <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Gönder</button>
                         </div>
-                    </form>
+                    }
+
                 </div>
             </div>
         </div>
@@ -190,14 +192,11 @@
                     <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com" target="_blank">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com" target="_blank">
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://x.com/" target="_blank">
                         <i class="fab fa-twitter"></i>
                     </a>
                     <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com" target="_blank">
                         <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="https://dribbble.com" target="_blank">
-                        <i class="fab fa-dribbble"></i>
                     </a>
                 </div>
             </div>

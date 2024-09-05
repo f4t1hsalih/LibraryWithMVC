@@ -52,6 +52,16 @@
           <Property Name="ctg_id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ctg_name" Type="varchar" MaxLength="20" />
         </EntityType>
+        <EntityType Name="tbl_communication">
+          <Key>
+            <PropertyRef Name="cmm_id" />
+          </Key>
+          <Property Name="cmm_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmm_name" Type="varchar" MaxLength="50" />
+          <Property Name="cmm_email" Type="varchar" MaxLength="50" />
+          <Property Name="cmm_subject" Type="varchar" MaxLength="50" />
+          <Property Name="cmm_message" Type="varchar" MaxLength="1000" />
+        </EntityType>
         <EntityType Name="tbl_member">
           <Key>
             <PropertyRef Name="mmb_id" />
@@ -196,6 +206,7 @@
           <EntitySet Name="tbl_author" EntityType="Self.tbl_author" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_book" EntityType="Self.tbl_book" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_category" EntityType="Self.tbl_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_communication" EntityType="Self.tbl_communication" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_member" EntityType="Self.tbl_member" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_movement" EntityType="Self.tbl_movement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_punishment" EntityType="Self.tbl_punishment" Schema="dbo" store:Type="Tables" />
@@ -465,6 +476,7 @@
             <End Role="tbl_punishment" EntitySet="tbl_punishment" />
           </AssociationSet>
           <EntitySet Name="tbl_about" EntityType="DB_LibraryWithMVCModel.tbl_about" />
+          <EntitySet Name="tbl_communication" EntityType="DB_LibraryWithMVCModel.tbl_communication" />
         </EntityContainer>
         <EntityType Name="tbl_about">
           <Key>
@@ -472,6 +484,16 @@
           </Key>
           <Property Name="abt_id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="abt_about" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_communication">
+          <Key>
+            <PropertyRef Name="cmm_id" />
+          </Key>
+          <Property Name="cmm_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmm_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cmm_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cmm_subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cmm_message" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -587,6 +609,17 @@
               <MappingFragment StoreEntitySet="tbl_about">
                 <ScalarProperty Name="abt_about" ColumnName="abt_about" />
                 <ScalarProperty Name="abt_id" ColumnName="abt_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_communication">
+            <EntityTypeMapping TypeName="DB_LibraryWithMVCModel.tbl_communication">
+              <MappingFragment StoreEntitySet="tbl_communication">
+                <ScalarProperty Name="cmm_message" ColumnName="cmm_message" />
+                <ScalarProperty Name="cmm_subject" ColumnName="cmm_subject" />
+                <ScalarProperty Name="cmm_email" ColumnName="cmm_email" />
+                <ScalarProperty Name="cmm_name" ColumnName="cmm_name" />
+                <ScalarProperty Name="cmm_id" ColumnName="cmm_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -35,5 +35,6 @@ namespace LibraryWithMVC.Models.Entity
         public virtual DbSet<tbl_safe> tbl_safe { get; set; }
         public virtual DbSet<tbl_staff> tbl_staff { get; set; }
         public virtual DbSet<tbl_about> tbl_about { get; set; }
+        public virtual DbSet<tbl_communication> tbl_communication { get; set; }
     }
 }

@@ -8,6 +8,7 @@ namespace LibraryWithMVC.Controllers
     public class ShowcaseController : Controller
     {
         // GET: Showcase
+        [HttpGet]
         public ActionResult Index()
         {
             DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities();
@@ -20,5 +21,16 @@ namespace LibraryWithMVC.Controllers
 
             return View(cs);
         }
+        [HttpPost]
+        public ActionResult Index(tbl_communication cmm)
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                db.tbl_communication.Add(cmm);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+        }
+
     }
 }
