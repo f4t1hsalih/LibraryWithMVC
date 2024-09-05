@@ -36,6 +36,7 @@
           <Property Name="bk_publishing_house" Type="varchar" MaxLength="50" />
           <Property Name="bk_page" Type="varchar" MaxLength="4" />
           <Property Name="bk_status" Type="bit" />
+          <Property Name="bk_image" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="tbl_category">
           <Key>
@@ -260,6 +261,7 @@
           <NavigationProperty Name="tbl_author" Relationship="Self.FK_tbl_book_tbl_author" FromRole="tbl_book" ToRole="tbl_author" />
           <NavigationProperty Name="tbl_category" Relationship="Self.FK_tbl_book_tbl_category" FromRole="tbl_book" ToRole="tbl_category" />
           <NavigationProperty Name="tbl_movement" Relationship="Self.FK_tbl_movement_tbl_book" FromRole="tbl_book" ToRole="tbl_movement" />
+          <Property Name="bk_image" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbl_category">
           <Key>
@@ -485,6 +487,7 @@
           <EntitySetMapping Name="tbl_book">
             <EntityTypeMapping TypeName="DB_LibraryWithMVCModel.tbl_book">
               <MappingFragment StoreEntitySet="tbl_book">
+                <ScalarProperty Name="bk_image" ColumnName="bk_image" />
                 <ScalarProperty Name="bk_id" ColumnName="bk_id" />
                 <ScalarProperty Name="bk_name" ColumnName="bk_name" />
                 <ScalarProperty Name="bk_ctg" ColumnName="bk_ctg" />

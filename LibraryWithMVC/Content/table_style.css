@@ -3,7 +3,6 @@
     width: 100%;
     border-collapse: collapse;
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
     color: #333;
     margin-bottom: 20px;
     background-color: #f8f9fa;
@@ -18,6 +17,7 @@
         color: #ffffff;
         text-align: center;
         padding: 12px;
+        font-size: 17px;
         text-transform: uppercase;
         font-weight: 500;
         border-bottom: 2px solid #4e73df;
@@ -36,6 +36,7 @@
 
     .table tbody td {
         padding: 12px;
+        font-size: 16px;
         border-right: 1px solid #dddddd;
         text-align: center; /* Hücre içeriğini ortala */
         vertical-align: middle; /* İçeriği dikeyde ortala */
@@ -45,61 +46,10 @@
             border-right: none;
         }
 
-        .table tbody td a {
-            display: inline-block;
-            padding: 8px 16px;
-            color: #333;
-            text-decoration: none;
-            transition: color 0.3s ease, background-color 0.3s ease;
-            border-radius: 8px;
-        }
 
     .table tbody tr:hover {
         background-color: #f1f1f1;
     }
-
-    .table tbody td a:hover {
-        background-color: #4e73df; /* Hover efektinde buton arka plan rengi */
-        color: #ffffff; /* Hoverda beyaz renk */
-    }
-
-/* Güncelle ve Sil düğmeleri için eski minimal stil */
-.btn-primary {
-    background-color: #1cc88a;
-    border: none;
-    padding: 8px 16px;
-    color: #ffffff;
-    cursor: pointer;
-    border-radius: 30px;
-    font-size: 13px;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.btn-danger {
-    background-color: #e74a3b;
-    border: none;
-    padding: 8px 16px;
-    color: #ffffff;
-    cursor: pointer;
-    border-radius: 30px;
-    font-size: 13px;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Hover efekti düğmeler */
-.btn-primary:hover {
-    background-color: #17a673;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.btn-danger:hover {
-    background-color: #c9302c;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
 
 /* Butonların ortalanması */
 .btn-center {

@@ -28,6 +28,7 @@ namespace LibraryWithMVC.Models.Entity
         public string bk_publishing_house { get; set; }
         public string bk_page { get; set; }
         public Nullable<bool> bk_status { get; set; }
+        public string bk_image { get; set; }
     
         public virtual tbl_author tbl_author { get; set; }
         public virtual tbl_category tbl_category { get; set; }
