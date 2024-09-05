@@ -1,6 +1,7 @@
 ﻿using LibraryWithMVC.Models.Entity;
 using System.Linq;
 using System.Web.Mvc;
+using LibraryWithMVC.Models.MyClasses;
 
 namespace LibraryWithMVC.Controllers
 {
@@ -9,10 +10,15 @@ namespace LibraryWithMVC.Controllers
         // GET: Showcase
         public ActionResult Index()
         {
-            ViewBag.Title = "Vitrin Paneli";
             DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities();
-            var books = db.tbl_book.ToList();
-            return View(books);
+
+            ViewBag.Title = "Vitrin Paneli";
+
+            Class1 cs = new Class1();
+            cs.bookEnumerable = db.tbl_book.ToList();
+            cs.aboutEnumerable = db.tbl_about.ToList();
+
+            return View(cs);
         }
     }
 }

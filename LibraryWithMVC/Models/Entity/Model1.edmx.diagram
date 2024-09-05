@@ -20,6 +20,7 @@
         <AssociationConnector Association="DB_LibraryWithMVCModel.FK_tbl_punishment_tbl_member" ManuallyRouted="false" />
         <AssociationConnector Association="DB_LibraryWithMVCModel.FK_tbl_movement_tbl_staff" ManuallyRouted="false" />
         <AssociationConnector Association="DB_LibraryWithMVCModel.FK_tbl_punishment_tbl_movement" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB_LibraryWithMVCModel.tbl_about" Width="1.5" PointX="7.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

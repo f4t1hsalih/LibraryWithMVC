@@ -15,6 +15,13 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="tbl_about">
+          <Key>
+            <PropertyRef Name="abt_id" />
+          </Key>
+          <Property Name="abt_id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="abt_about" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="tbl_author">
           <Key>
             <PropertyRef Name="ath_id" />
@@ -185,6 +192,7 @@
         </Association>
         <EntityContainer Name="DB_LibraryWithMVCModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_about" EntityType="Self.tbl_about" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_author" EntityType="Self.tbl_author" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_book" EntityType="Self.tbl_book" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_category" EntityType="Self.tbl_category" Schema="dbo" store:Type="Tables" />
@@ -456,7 +464,15 @@
             <End Role="tbl_movement" EntitySet="tbl_movement" />
             <End Role="tbl_punishment" EntitySet="tbl_punishment" />
           </AssociationSet>
+          <EntitySet Name="tbl_about" EntityType="DB_LibraryWithMVCModel.tbl_about" />
         </EntityContainer>
+        <EntityType Name="tbl_about">
+          <Key>
+            <PropertyRef Name="abt_id" />
+          </Key>
+          <Property Name="abt_id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="abt_about" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -563,6 +579,14 @@
                 <ScalarProperty Name="stf_id" ColumnName="stf_id" />
                 <ScalarProperty Name="stf_name" ColumnName="stf_name" />
                 <ScalarProperty Name="stf_surname" ColumnName="stf_surname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_about">
+            <EntityTypeMapping TypeName="DB_LibraryWithMVCModel.tbl_about">
+              <MappingFragment StoreEntitySet="tbl_about">
+                <ScalarProperty Name="abt_about" ColumnName="abt_about" />
+                <ScalarProperty Name="abt_id" ColumnName="abt_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

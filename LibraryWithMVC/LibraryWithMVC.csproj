@@ -191,6 +191,9 @@
     <Compile Include="Models\Entity\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entity\tbl_about.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entity\tbl_author.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -215,6 +218,7 @@
     <Compile Include="Models\Entity\tbl_staff.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MyClasses\Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
