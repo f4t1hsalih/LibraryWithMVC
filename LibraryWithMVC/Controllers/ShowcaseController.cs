@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace LibraryWithMVC.Controllers
 {
@@ -11,6 +7,7 @@ namespace LibraryWithMVC.Controllers
         // GET: Showcase
         public ActionResult Index()
         {
+            ViewBag.Title = "Vitrin Paneli";
             return View();
         }
     }
