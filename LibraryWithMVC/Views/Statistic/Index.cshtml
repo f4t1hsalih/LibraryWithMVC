@@ -3,99 +3,167 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link href="~/Templates/web2/css/style.css" rel="stylesheet" />
+<link href="~/Templates/web2/css/jqvmap.css" rel="stylesheet" />
 <script src="~/Templates/web2/js/Chart1.js"></script>
+<script src="~/Templates/web2/js/jquery.min.js"></script>
+<script src="~/Templates/web2/js/jquery.vmap.js"></script>
+<script src="~/Templates/web2/js/jquery.vmap.sampledata.js"></script>
+<script src="~/Templates/web2/js/jquery.vmap.world.js"></script>
 
 <h2>İstatistikler</h2>
 <hr />
 
-<div class="list_of_members">
-    <div class="sales">
-        <div class="icon">
-            <i class="dollar"></i> 
+<div class="total-content">
+
+    <div class="col-md-12 content">
+        <!-- İstatistikler Bölümü -->
+        <div class="list_of_members">
+            <div class="sales">
+                <div class="icon">
+                    <i class="dollar"></i>
+                </div>
+                <div class="icon-text">
+                    <h3>15896</h3>
+                    <p>Satışlar</p>
+                </div>
+            </div>
+            <div class="new-users">
+                <div class="icon">
+                    <i class="user1"></i>
+                </div>
+                <div class="icon-text">
+                    <h3>1345</h3>
+                    <p>Toplam Üye</p>
+                </div>
+            </div>
+            <div class="orders">
+                <div class="icon">
+                    <i class="order"></i>
+                </div>
+                <div class="icon-text">
+                    <h3>7546</h3>
+                    <p>Kitap Sayımız</p>
+                </div>
+            </div>
+            <div class="visitors">
+                <div class="icon">
+                    <i class="visit"></i>
+                </div>
+                <div class="icon-text">
+                    <h3>124</h3>
+                    <p>Emanet Kitaplar</p>
+                </div>
+            </div>
         </div>
-        <div class="icon-text">
-            <h3>15896</h3>
-            <p>Satışlar</p>
+
+        <!-- Grafik ve Yapılacaklar -->
+        <div class="total-sales">
+            <div class="user-trends">
+                <canvas id="bar" height="340" width="780"></canvas>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        var barChartData = {
+                            labels: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz"],
+                            datasets: [
+                                {
+                                    fillColor: "rgba(255, 137, 167, 0.78)",
+                                    strokeColor: "rgba(220,220,220,1)",
+                                    data: [65, 59, 90, 81, 56, 55, 40]
+                                },
+                                {
+                                    fillColor: "rgba(140, 145, 255, 0.69)",
+                                    strokeColor: "rgba(151,187,205,1)",
+                                    data: [28, 48, 40, 19, 96, 27, 100]
+                                }
+                            ]
+                        };
+
+                        var ctx = document.getElementById("bar").getContext("2d");
+                        var myBarChart = new Chart(ctx).Bar(barChartData);
+                    });
+                </script>
+            </div>
+
+            <div class="to-do">
+                <h3>Yapılacaklar</h3>
+                <div class="checkbox-form">
+                    <div class="check">
+                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Bulaşıkları yıka.</label>
+                    </div>
+                    <div class="check">
+                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Spor salonuna git.</label>
+                    </div>
+                    <div class="check">
+                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Köpeği gezdir.</label>
+                    </div>
+                    <div class="check">
+                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Wireframing yap!</label>
+                    </div>
+                    <div class="check">
+                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Kediyi sev.</label>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="new-users">
-        <div class="icon">
-            <i class="user1"></i> 
-        </div>
-        <div class="icon-text">
-            <h3>1345</h3>
-            <p>Toplam Üye</p>
-        </div>
-    </div>
-    <div class="orders">
-        <div class="icon">
-            <i class="order"></i> 
-        </div>
-        <div class="icon-text">
-            <h3>7546</h3>
-            <p>Kitap Sayımız</p>
-        </div>
-    </div>
-    <div class="visitors">
-        <div class="icon">
-            <i class="visit"></i>
-        </div>
-        <div class="icon-text">
-            <h3>124</h3>
-            <p>Emanet Kitaplar</p>
+
+        <!-- Dünya Haritası ve Site Raporu -->
+        <div class="total-world">
+            <div class="world-map">
+                <h3>Dünya Haritası</h3>
+                <p><span class="color1"></span>40%<span class="color2"></span>12%<span class="color3"></span>11%<span class="color4"></span>10%<span class="color5"></span>18%</p>
+                <div id="vmap" style="width: 600px; height: 400px;"></div>
+            </div>
+            <div class="site-report">
+                <h3>Sistem Raporları</h3>
+                <div class="skills-top">
+                    <h5>Memnuniyet</h5>
+                    <h4>96%</h4>
+                    <div class="skills">
+                        <div class="skill" style="width:96%"></div>
+                    </div>
+                </div>
+                <div class="skills-top">
+                    <h5>Güvenilirlik</h5>
+                    <h4>89%</h4>
+                    <div class="skills">
+                        <div class="skill1" style="width: 89%"></div>
+                    </div>
+                </div>
+                <div class="skills-top">
+                    <h5>Haftalık Geri Dönüş</h5>
+                    <h4>76%</h4>
+                    <div class="skills">
+                        <div class="skill2" style="width:76%"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<br />
-<br />
-<br />
-
-<div class="total-sales">
-    <div class="user-trends">
-        <canvas id="bar" height="340" width="780"></canvas>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                var barChartData = {
-                    labels: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz"],
-                    datasets: [
-                        {
-                            fillColor: "rgba(255, 137, 167, 0.78)",
-                            strokeColor: "rgba(220,220,220,1)",
-                            data: [65, 59, 90, 81, 56, 55, 40]
-                        },
-                        {
-                            fillColor: "rgba(140, 145, 255, 0.69)",
-                            strokeColor: "rgba(151,187,205,1)",
-                            data: [28, 48, 40, 19, 96, 27, 100]
-                        }
-                    ]
-                };
-
-                var ctx = document.getElementById("bar").getContext("2d");
-                var myBarChart = new Chart(ctx).Bar(barChartData);
+<script>
+    $(document).ready(function (c) {
+        $('.alert-close6').on('click', function (c) {
+            $('.world-map').fadeOut('slow', function (c) {
+                $('.world-map').remove();
             });
-        </script>
-    </div>
+        });
+    });
+</script>
 
-    <div class="to-do">
-        <h3>Yapılacaklar</h3>
-        <div class="checkbox-form">
-            <div class="check">
-                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Bulaşıkları yıka.</label>
-            </div>
-            <div class="check">
-                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Spor salonuna git.</label>
-            </div>
-            <div class="check">
-                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Köpeği gezdir.</label>
-            </div>
-            <div class="check">
-                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Wireframing yap!</label>
-            </div>
-            <div class="check">
-                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Kediyi sev.</label>
-            </div>
-        </div>
-    </div>
-</div>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('#vmap').vectorMap({
+            map: 'world_en',
+            backgroundColor: '#333333',
+            color: '#ffffff',
+            hoverOpacity: 0.7,
+            selectedColor: '#666666',
+            enableZoom: true,
+            showTooltip: true,
+            values: sample_data,
+            scaleColors: ['#C8EEFF', '#006491'],
+            normalizeFunction: 'polynomial'
+        });
+    });
+</script>
