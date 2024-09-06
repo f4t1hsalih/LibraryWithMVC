@@ -34,6 +34,8 @@ body {
 
     .sidebar ul {
         list-style: none; /* Menü listesindeki varsayılan işaretleri (bullet points) kaldırır. */
+        margin-left: 15px;
+        padding: 0;
     }
 
         .sidebar ul li {
