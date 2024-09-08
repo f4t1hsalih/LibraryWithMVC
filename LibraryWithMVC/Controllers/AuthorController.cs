@@ -68,8 +68,16 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
-                db.Entry(author).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
+                ModelState.Remove("ath_id");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(author).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+                else
+                {
+                    return View(author);
+                }
             }
             return RedirectToAction("Index");
         }
