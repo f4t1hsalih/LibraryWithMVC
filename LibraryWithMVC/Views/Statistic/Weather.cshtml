@@ -1,35 +1,18 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Hava Durumu";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Weather</h2>
-<hr />
-
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Flatty Weather Report Responsive Widget Template :: w3layouts</title>
+    <title>Hava Durumu Raporu | Kütüphane Yönetim Sistemi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <!-- Custom Theme files -->
+    <meta charset="utf-8" />
     <link href="~/Templates/webhava/css/style.css" rel="stylesheet" type="text/css" media="all" />
-    <!-- //Custom Theme files -->
-    <!-- web font -->
     <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
-    <!-- //web font -->
-    <!-- js -->
     <script src="~/Templates/webhava/js/jquery-2.1.4.min.js"></script>
-    <script src="~/Templates/webhava/js/skycons.js"></script> <!-- skycons-icons -->
-    <!-- //js -->
+    <script src="~/Templates/webhava/js/skycons.js"></script>
 </head>
 <body>
     <!-- w3ls-weather -->
@@ -38,7 +21,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="w3ls-weather-agileinfo">
             <div class="weather-left">
                 <div class="weather-left-text">
-                    <h3>İstanbul, Türkiye </h3>
+                    <h3>İstanbul, Türkiye</h3>
                     <h4>@DateTime.Now.Date.ToShortDateString()</h4>
                 </div>
                 <ul class="report">
@@ -87,36 +70,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </li>
                 </ul>
                 <script>
-                    var icons = new Skycons({ "color": "#fff" }),
-                        list = [
-                            "partly-cloudy-day"
-                        ],
-                        i;
-
-                    for (i = list.length; i--;)
-                        icons.set(list[i], list[i]);
-                    icons.play();
-                </script>
-                <script>
-                    var icons = new Skycons({ "color": "#fff" }),
-                        list = [
-                            "clear-night", "partly-cloudy-night", "cloudy", "clear-day", "sleet", "snow", "wind", "fog"
-                        ],
-                        i;
-
-                    for (i = list.length; i--;)
-                        icons.set(list[i], list[i]);
+                    var icons = new Skycons({ "color": "#fff" });
+                    icons.set("partly-cloudy-day", Skycons.PARTLY_CLOUDY_DAY);
+                    icons.set("clear-day", Skycons.CLEAR_DAY);
+                    icons.set("snow", Skycons.SNOW);
+                    icons.set("partly-cloudy-night", Skycons.PARTLY_CLOUDY_NIGHT);
                     icons.play();
                 </script>
             </div>
             <div class="clear"></div>
         </div>
     </div>
-    <!-- //w3ls-weather -->
     <!-- copyright -->
     <div class="copyw3-agile">
-        <p> @DateTime.Now.Year Flatty Weather Report . Tüm Hakları Saklıdır | Design by <a href="http://w3layouts.com/" target="_blank">Kütüphane Yönetim Sistemi</a></p>
+        <p> @DateTime.Now.Year Kütüphane Hava Durumu . Tüm Hakları Saklıdır | Design by <a href="http://w3layouts.com/" target="_blank">Kütüphane Yönetim Sistemi</a></p>
     </div>
-    <!-- //copyright -->
 </body>
 </html>

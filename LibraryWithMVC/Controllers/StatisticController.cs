@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace LibraryWithMVC.Controllers
 {
@@ -15,6 +11,10 @@ namespace LibraryWithMVC.Controllers
         }
 
         public ActionResult Weather()
+        {
+            return View();
+        }
+        public ActionResult WeatherCard()
         {
             return View();
         }
