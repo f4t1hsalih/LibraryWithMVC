@@ -1,35 +1,88 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Galeri";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Galeri</h2>
+<h2 class="text-center">Galeri</h2>
 <hr />
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
+    .gallery-container {
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+    }
+
     .mySlides {
-        display: none
+        display: none;
+        height: 550px;
+        object-fit: cover;
+        border-radius: 8px;
     }
 
     .w3-left, .w3-right, .w3-badge {
-        cursor: pointer
+        cursor: pointer;
     }
 
     .w3-badge {
         height: 13px;
         width: 13px;
-        padding: 0
+        padding: 0;
     }
+
+    .w3-display-container {
+        position: relative;
+    }
+
+    .form-container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .form-control-file {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .btn-success-custom {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .btn-success-custom:hover {
+            background-color: #218838;
+        }
 </style>
 
-<div class="w3-content w3-display-container" style="max-width:800px">
-    <img class="mySlides" src="~/Templates/web2/resimler/book1.jpg" style="width:100%;">
-    <img class="mySlides" src="~/Templates/web2/resimler/book2.jpg" style="width:100%;">
-    <img class="mySlides" src="~/Templates/web2/resimler/book3.jpg" style="width:100%;">
-    <img class="mySlides" src="~/Templates/web2/resimler/book4.jpg" style="width:100%;">
-    <img class="mySlides" src="~/Templates/web2/resimler/book5.jpg" style="width:100%;">
+<div class="gallery-container w3-content w3-display-container">
+    <img class="mySlides" src="@Url.Content("~/Templates/web2/img/book1.jpg")" style="width:100%;">
+    <img class="mySlides" src="@Url.Content("~/Templates/web2/img/book2.jpg")" style="width:100%;">
+    <img class="mySlides" src="@Url.Content("~/Templates/web2/img/book3.jpg")" style="width:100%;">
+    <img class="mySlides" src="@Url.Content("~/Templates/web2/img/book4.jpg")" style="width:100%;">
+    <img class="mySlides" src="@Url.Content("~/Templates/web2/img/book5.jpg")" style="width:100%;">
     <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
         <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
         <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
@@ -70,9 +123,24 @@
     }
 </script>
 
-<div style="width:100px">
-    <input  type="file" class="btn btn-primary" value="Dosya Seç"/>
-    <br />
-    <br />
-    <input  type="button" class="btn btn-success" value="Kaydet"/>
+<div class="form-container">
+    @using (Html.BeginForm("UploadFile", "Statistic", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        <div class="form-group">
+            <label for="file" class="form-label">Dosya Seçin:</label>
+            <input type="file" name="file" id="file" class="form-control-file" />
+        </div>
+        <div class="form-group text-center">
+            <input type="submit" class="btn btn-success-custom" value="Kaydet" />
+        </div>
+    }
 </div>
+
+<script>
+    document.querySelector('form').addEventListener('submit', function (e) {
+        if (document.getElementById('file').value === '') {
+            alert('Lütfen bir dosya seçin.');
+            e.preventDefault();
+        }
+    });
+</script>

@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.IO;
+using System.Web;
+using System.Web.Mvc;
 
 namespace LibraryWithMVC.Controllers
 {
@@ -20,6 +22,17 @@ namespace LibraryWithMVC.Controllers
         }
         public ActionResult Gallery()
         {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult UploadFile(HttpPostedFileBase file)
+        {
+            if(file.ContentLength > 0)
+            {
+                string pathOfFile = Path.Combine(Server.MapPath("~/Templates/web2/img/"), Path.GetFileName(file.FileName));
+                file.SaveAs(pathOfFile);
+                return RedirectToAction("Gallery");
+            }
             return View();
         }
     }
