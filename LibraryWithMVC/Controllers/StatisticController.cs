@@ -13,5 +13,10 @@ namespace LibraryWithMVC.Controllers
         {
             return View();
         }
+
+        public ActionResult Weather()
+        {
+            return View();
+        }
     }
 }
