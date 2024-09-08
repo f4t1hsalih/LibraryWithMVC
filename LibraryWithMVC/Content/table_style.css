@@ -1,7 +1,7 @@
 ﻿/* Genel tablo stili */
 .table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse; /* Hücrelerin birleşmesi */
     font-family: 'Roboto', sans-serif;
     color: #333;
     margin-bottom: 20px;
@@ -9,6 +9,7 @@
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    border: none; /* Tablonun genel kenarlığını kaldır */
 }
 
     /* Başlık stili */
@@ -22,11 +23,13 @@
         font-weight: 500;
         border-bottom: 2px solid #4e73df;
         letter-spacing: 0.5px; /* Harfler arasında biraz boşluk */
+        border-right: none; /* Dikine çizgi yok */
+        border: none;
     }
 
     /* Gövde stili */
     .table tbody tr {
-        border-bottom: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd; /* Sadece yatay çizgiler */
         transition: background-color 0.3s ease;
     }
 
@@ -37,16 +40,12 @@
     .table tbody td {
         padding: 12px;
         font-size: 16px;
-        border-right: 1px solid #dddddd;
         text-align: center; /* Hücre içeriğini ortala */
         vertical-align: middle; /* İçeriği dikeyde ortala */
+        border: none; /* Tüm kenarlıkları kaldır */
     }
 
-        .table tbody td:last-child {
-            border-right: none;
-        }
-
-
+    /* Satırların üzerine gelindiğinde arka plan rengi */
     .table tbody tr:hover {
         background-color: #f1f1f1;
     }

@@ -50,6 +50,7 @@ body {
                 text-decoration: none; /* Menü bağlantılarındaki alt çizgileri kaldırır. */
                 font-size: 16px; /* Menü bağlantı metninin font boyutunu 16 piksel yapar. */
                 transition: background-color 0.3s ease, color 0.3s ease; /* Arka plan rengi ve metin renginin değişiminde 0.3 saniyelik yumuşak bir geçiş efekti ekler. */
+                justify-content: flex-start; /* Simgelerin ve metinlerin başlangıç hizasına gelmesini sağlar */
             }
 
                 .sidebar ul li a:hover {
@@ -58,8 +59,9 @@ body {
                 }
 
                 .sidebar ul li a .material-icons {
-                    font-size: 24px; /* Menü simgelerinin font boyutunu 24 piksel yapar. */
-                    margin-right: 15px; /* Menü simgeleri ile metin arasına 15 piksel boşluk bırakır. */
+                    font-size: 24px;
+                    margin-right: 10px; /* Bu değeri azaltabilir veya artırabilirsiniz */
+                    vertical-align: middle;  Simgeyi metinle hizalar 
                 }
 
 /* Açılır Menü (Submenu) */
@@ -125,7 +127,8 @@ body {
         }
 
         .sidebar ul li a {
-            justify-content: center; /* Menü bağlantılarını yatay olarak ortalar. */
+            justify-content: center; /* Simgeyi tam ortalar */
+            padding: 10px; /* Gereksiz boşlukları düzenler */
         }
 
         .sidebar ul li .submenu a {

@@ -28,7 +28,7 @@
                 <td>@item.ath_surname</td>
                 <td>@item.ath_detail</td>
                 <td><a href="/Author/EditAuthor/@item.ath_id" class="btn btn-primary">Güncelle</a></td>
-                <td>@Html.ActionLink("Sil", "DeleteAuthor", new { id = item.ath_id }, new {@class= "btn btn-danger btn-center", onclick="return confirm('Silmek İstediğinize Emin Misiniz?')"})</td>
+                <td>@Html.ActionLink("Sil", "DeleteAuthor", new {id = item.ath_id }, new {@class= "btn btn-danger", onclick="return confirm('Silmek İstediğinize Emin Misiniz?')"})</td>
             </tr>
         }
     </tbody>
