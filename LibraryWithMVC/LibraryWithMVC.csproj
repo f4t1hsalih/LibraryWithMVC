@@ -405,6 +405,7 @@
     <Content Include="Views\Statistic\Index.cshtml" />
     <Content Include="Views\Statistic\Weather.cshtml" />
     <Content Include="Views\Statistic\WeatherCard.cshtml" />
+    <Content Include="Views\Statistic\Gallery.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -18,5 +18,9 @@ namespace LibraryWithMVC.Controllers
         {
             return View();
         }
+        public ActionResult Gallery()
+        {
+            return View();
+        }
     }
 }
