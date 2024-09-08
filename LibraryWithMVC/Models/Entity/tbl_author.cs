@@ -11,7 +11,8 @@ namespace LibraryWithMVC.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbl_author
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,9 @@ namespace LibraryWithMVC.Models.Entity
         }
     
         public int ath_id { get; set; }
+        [Required(ErrorMessage ="Yazar Ýsmi Zorunludur!")]
         public string ath_name { get; set; }
+        [Required(ErrorMessage = "Yazar Soyadý Zorunludur!")]
         public string ath_surname { get; set; }
         public string ath_detail { get; set; }
     

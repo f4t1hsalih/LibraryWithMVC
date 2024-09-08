@@ -26,10 +26,19 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
-                db.tbl_author.Add(author);
-                db.SaveChanges();
+                ModelState.Remove("ath_id");
+                if (ModelState.IsValid)
+                {
+                    db.tbl_author.Add(author);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(author);
+                }
+
             }
-            return RedirectToAction("Index");
         }
 
         // GET: Delete Author
