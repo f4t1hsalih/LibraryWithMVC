@@ -61,7 +61,7 @@ body {
                 .sidebar ul li a .material-icons {
                     font-size: 24px;
                     margin-right: 10px; /* Bu değeri azaltabilir veya artırabilirsiniz */
-                    vertical-align: middle;  Simgeyi metinle hizalar 
+                    vertical-align: middle; /*Simgeyi metinle hizalar*/
                 }
 
 /* Açılır Menü (Submenu) */
@@ -93,6 +93,25 @@ body {
 .sidebar ul li.active > .submenu { /* Bu seçici, yan menüdeki bir li öğesine .active sınıfı eklendiğinde (genellikle kullanıcı bir menü öğesine tıkladığında), alt menünün (.submenu) görünmesini sağlar. Yani, .active sınıfı olan bir liste öğesi varsa, bu öğenin altında bulunan alt menü gösterilir.*/
     display: block; /* 'active' sınıfına sahip menü öğesi için alt menüyü görünür yapar. */
 }
+
+.sidebar::-webkit-scrollbar {
+    width: 10px; /* Kaydırma çubuğunun genişliği */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #888; /* Kaydırma çubuğunun rengi */
+    border-radius: 10px; /* Köşe yuvarlaklığı */
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Kaydırma çubuğunun arka plan rengi */
+    border-radius: 10px; /* Köşe yuvarlaklığı */
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Kaydırma çubuğunun üzerine gelindiğinde renk değişikliği */
+}
+
 
 /* İçerik Alanı (Main Content) */
 .main-content {
