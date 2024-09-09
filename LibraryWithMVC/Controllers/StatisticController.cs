@@ -55,6 +55,7 @@ namespace LibraryWithMVC.Controllers
                 ViewBag.bookInDeposit = db.tbl_book.Where(x => x.bk_status == false).Count();
                 ViewBag.CategoryCount = db.tbl_category.Count();
                 ViewBag.TotalMessage = db.tbl_communication.Count();
+                ViewBag.GetTopAuthorByBookCount = db.GetTopAuthorByBookCount().FirstOrDefault().Yazar;
                 return View();
             }
         }

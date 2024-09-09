@@ -200,6 +200,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="GetTopAuthorByBookCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DB_LibraryWithMVCModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_about" EntityType="Self.tbl_about" Schema="dbo" store:Type="Tables" />
@@ -477,6 +478,7 @@
           </AssociationSet>
           <EntitySet Name="tbl_about" EntityType="DB_LibraryWithMVCModel.tbl_about" />
           <EntitySet Name="tbl_communication" EntityType="DB_LibraryWithMVCModel.tbl_communication" />
+          <FunctionImport Name="GetTopAuthorByBookCount" ReturnType="Collection(DB_LibraryWithMVCModel.GetTopAuthorByBookCount_Result)" />
         </EntityContainer>
         <EntityType Name="tbl_about">
           <Key>
@@ -495,6 +497,10 @@
           <Property Name="cmm_subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cmm_message" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="GetTopAuthorByBookCount_Result">
+          <Property Type="String" Name="Yazar" Nullable="true" MaxLength="61" />
+          <Property Type="Int32" Name="BookCount" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -623,6 +629,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetTopAuthorByBookCount" FunctionName="DB_LibraryWithMVCModel.Store.GetTopAuthorByBookCount">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_LibraryWithMVCModel.GetTopAuthorByBookCount_Result">
+                <ScalarProperty Name="Yazar" ColumnName="Yazar" />
+                <ScalarProperty Name="BookCount" ColumnName="BookCount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -12,6 +12,8 @@ namespace LibraryWithMVC.Models.Entity
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DB_LibraryWithMVCEntities : DbContext
     {
@@ -36,5 +38,10 @@ namespace LibraryWithMVC.Models.Entity
         public virtual DbSet<tbl_staff> tbl_staff { get; set; }
         public virtual DbSet<tbl_about> tbl_about { get; set; }
         public virtual DbSet<tbl_communication> tbl_communication { get; set; }
+    
+        public virtual ObjectResult<GetTopAuthorByBookCount_Result> GetTopAuthorByBookCount()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetTopAuthorByBookCount_Result>("GetTopAuthorByBookCount");
+        }
     }
 }
