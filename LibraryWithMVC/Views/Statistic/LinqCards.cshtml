@@ -1,0 +1,152 @@
+﻿@{
+    ViewBag.Title = "Linq Kartları";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Linq Kartları</h2>
+<hr />
+
+<!-- CSS Bağlantıları -->
+<link href="~/Templates/web2/LinqCardsCSS/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="~/Templates/web2/LinqCardsCSS/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="~/Templates/web2/LinqCardsCSS/font-awesome.css" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+<link href="~/Templates/web2/LinqCardsCSS/LinqCardsStyle.css" rel="stylesheet" />
+
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- İçerik -->
+<ul class="ca-menu">
+    <li>
+        <a href="#">
+            <i class="fa fa-book" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main">###</h4>
+                <h3 class="ca-sub">Kitap Sayımız</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main">###</h4>
+                <h3 class="ca-sub">Üye Sayımız</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-money-bill-wave" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main">###</h4>
+                <h3 class="ca-sub">Kasadaki Tutar</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-bookmark" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main">###</h4>
+                <h3 class="ca-sub">Ödünçdeki Kitaplar</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main">###</h4>
+                <h3 class="ca-sub">Kategori Sayımız</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main">###</h4>
+                <h3 class="ca-sub">En Aktif Üye</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main">###</h4>
+                <h3 class="ca-sub">En Çok Okunan Kitap</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-pen" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main">###</h4>
+                <h3 class="ca-sub">En Fazla Kitabı Olan Yazar</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-industry" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main">###</h4>
+                <h3 class="ca-sub">En İyi Yayınevi</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-handshake" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main">###</h4>
+                <h3 class="ca-sub">En Başarılı Personel</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main">###</h4>
+                <h3 class="ca-sub">Toplam Mesaj Sayısı</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-calendar-day" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main">###</h4>
+                <h3 class="ca-sub">Bugün Emanet Verilen Kitap S.</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main" id="current-time">00:00:00</h4>
+                <h3 class="ca-sub">Günün Tarihi</h3>
+            </div>
+        </a>
+    </li>
+</ul>
+
+<script>
+    function updateTime() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+
+        document.getElementById('current-time').innerText = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateTime, 1000);
+    window.onload = updateTime; 
+</script>

@@ -321,6 +321,19 @@
     <Content Include="Templates\web2\img\book4.jpg" />
     <Content Include="Templates\web2\img\book5.jpg" />
     <Content Include="Templates\web2\img\img1.jpg" />
+    <Content Include="Templates\web2\LinqCardsCSS\basictable.css" />
+    <Content Include="Templates\web2\LinqCardsCSS\bootstrap.css" />
+    <Content Include="Templates\web2\LinqCardsCSS\circles.css" />
+    <Content Include="Templates\web2\LinqCardsCSS\component.css" />
+    <Content Include="Templates\web2\LinqCardsCSS\export.css" />
+    <Content Include="Templates\web2\LinqCardsCSS\flipclock.css" />
+    <Content Include="Templates\web2\LinqCardsCSS\font-awesome.css" />
+    <Content Include="Templates\web2\LinqCardsCSS\jQuery-plugin-progressbar1.css" />
+    <Content Include="Templates\web2\LinqCardsCSS\LinqCardsStyle.css" />
+    <Content Include="Templates\web2\LinqCardsCSS\monthly.css" />
+    <Content Include="Templates\web2\LinqCardsCSS\style.css" />
+    <Content Include="Templates\web2\LinqCardsCSS\style_grid.css" />
+    <Content Include="Templates\web2\LinqCardsCSS\table-style.css" />
     <Content Include="Templates\web2\w3layouts-License.txt" />
     <Content Include="Templates\webhava\css\style.css" />
     <Content Include="Templates\webhava\images\bg.jpg" />
@@ -407,6 +420,7 @@
     <Content Include="Views\Statistic\WeatherCard.cshtml" />
     <Content Include="Views\Statistic\Gallery.cshtml" />
     <Content Include="Views\Movement\Detail.cshtml" />
+    <Content Include="Views\Statistic\LinqCards.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -44,5 +44,10 @@ namespace LibraryWithMVC.Controllers
             }
             return View();
         }
+
+        public ActionResult LinqCards()
+        {
+            return View();
+        }
     }
 }
