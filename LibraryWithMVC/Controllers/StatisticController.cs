@@ -16,7 +16,7 @@ namespace LibraryWithMVC.Controllers
                 ViewBag.memberCount = db.tbl_member.Count();
                 ViewBag.bookCount = db.tbl_book.Count();
                 ViewBag.bookInDeposit = db.tbl_book.Where(x => x.bk_status == false).Count();
-                ViewBag.safe=db.tbl_punishment.Sum(x => x.pnh_money);
+                ViewBag.safe = db.tbl_punishment.Sum(x => x.pnh_money);
                 return View();
             }
         }
@@ -36,7 +36,7 @@ namespace LibraryWithMVC.Controllers
         [HttpPost]
         public ActionResult UploadFile(HttpPostedFileBase file)
         {
-            if(file.ContentLength > 0)
+            if (file.ContentLength > 0)
             {
                 string pathOfFile = Path.Combine(Server.MapPath("~/Templates/web2/img/"), Path.GetFileName(file.FileName));
                 file.SaveAs(pathOfFile);
@@ -47,7 +47,14 @@ namespace LibraryWithMVC.Controllers
 
         public ActionResult LinqCards()
         {
-            return View();
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                ViewBag.bookCount = db.tbl_book.Count();
+                ViewBag.memberCount = db.tbl_member.Count();
+                ViewBag.safe = db.tbl_punishment.Sum(x => x.pnh_money);
+                ViewBag.bookInDeposit = db.tbl_book.Where(x => x.bk_status == false).Count();
+                return View();
+            }
         }
     }
 }
