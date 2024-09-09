@@ -14,7 +14,9 @@ namespace LibraryWithMVC.Controllers
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
                 ViewBag.memberCount = db.tbl_member.Count();
-
+                ViewBag.bookCount = db.tbl_book.Count();
+                ViewBag.bookInDeposit = db.tbl_book.Where(x => x.bk_status == false).Count();
+                ViewBag.safe=db.tbl_punishment.Sum(x => x.pnh_money);
                 return View();
             }
         }
