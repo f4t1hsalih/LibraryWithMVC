@@ -78,6 +78,11 @@ namespace LibraryWithMVC.Controllers
             {
                 var movement = db.tbl_movement.Find(id);
 
+                DateTime d1 = DateTime.Parse(movement.mvm_receipt_date.ToString());
+                DateTime d2 = DateTime.Now.Date;
+                TimeSpan d3 = d2 - d1;
+                ViewBag.d1 = d3.TotalDays;
+
                 if (movement != null)
                 {
                     var member = db.tbl_member.FirstOrDefault(m => m.mmb_id == movement.mvm_mmb);

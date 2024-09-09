@@ -42,6 +42,11 @@
         @Html.TextBox("returnDate", DateTime.Now.ToString("yyyy-MM-dd"), new { @class = "form-control", type = "date" })
     </div>
 
+    <div class="form-group mt-3">
+        @Html.Label("Geç Gelen Gün Sayısı")
+        <input type="text" class="form-control" id="numberOfDate" value=@ViewBag.d1 />
+    </div>
+
     <div class="form-group mt-3 text-center">
         <button type="submit" class="btn btn-primary">Kitabı Geri Al</button>
     </div>
