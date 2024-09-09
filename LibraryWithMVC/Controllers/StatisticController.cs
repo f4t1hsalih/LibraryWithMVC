@@ -53,6 +53,8 @@ namespace LibraryWithMVC.Controllers
                 ViewBag.memberCount = db.tbl_member.Count();
                 ViewBag.safe = db.tbl_punishment.Sum(x => x.pnh_money);
                 ViewBag.bookInDeposit = db.tbl_book.Where(x => x.bk_status == false).Count();
+                ViewBag.CategoryCount = db.tbl_category.Count();
+                ViewBag.TotalMessage = db.tbl_communication.Count();
                 return View();
             }
         }
