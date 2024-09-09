@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using LibraryWithMVC.Models.Entity;
+using System.IO;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -9,7 +11,12 @@ namespace LibraryWithMVC.Controllers
         // GET: Statistic
         public ActionResult Index()
         {
-            return View();
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                ViewBag.memberCount = db.tbl_member.Count();
+
+                return View();
+            }
         }
 
         public ActionResult Weather()
