@@ -1,18 +1,17 @@
 ﻿@model LibraryWithMVC.Models.Entity.tbl_movement
-
 @{
-    ViewBag.Title = "Kitap Geri Alma";
+    ViewBag.Title = "Deylar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Kitap Geri Alma</h2>
+<h2>Detaylar</h2>
 <hr />
 
 @{
     string renkClass = ViewBag.day > 30 ? "text-danger" : "text-success";
 }
 
-@using (Html.BeginForm("ReturnTheBookClick", "Borrow", FormMethod.Post))
+@using (Html.BeginForm("###", "###", FormMethod.Post))
 {
     @Html.HiddenFor(x => x.mvm_id)
 
@@ -43,15 +42,15 @@
 
     <div class="form-group mt-3 mb-3">
         @Html.Label("Geri Verdiği Tarih")
-        @Html.TextBox("returnDate", DateTime.Now.ToString("dd.MM.yyyy"), new { @class = "form-control", @readonly = "readonly" })
+        @if (Model.mvm_return_date != null)
+        {
+            @Html.TextBoxFor(x => x.mvm_return_date, "{0:dd.MM.yyyy}", new { @class = "form-control", @readonly = "readonly" })
+        }
+        else
+        {
+            @Html.TextBox("returnDate", "Kitap Henüz Geri Verilmemiş", new { @class = "form-control", @readonly = "readonly", style="color:red" })
+        }
+
     </div>
 
-    <div class="form-group mt-3 mb-3">
-        @Html.Label("Aldığı Günden Bugüne Geçen Gün Sayısı")
-        <input type="text" class="form-control @renkClass" name="numberOfDate" value="@ViewBag.day" readonly="readonly" />
-    </div>
-
-    <div class="form-group mt-3 text-center">
-        <button type="submit" class="btn btn-primary">Kitabı Geri Al</button>
-    </div>
 }

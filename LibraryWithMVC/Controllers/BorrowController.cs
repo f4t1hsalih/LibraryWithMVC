@@ -81,7 +81,7 @@ namespace LibraryWithMVC.Controllers
                 DateTime d1 = DateTime.Parse(movement.mvm_receipt_date.ToString());
                 DateTime d2 = DateTime.Now.Date;
                 TimeSpan d3 = d2 - d1;
-                ViewBag.d1 = d3.TotalDays;
+                ViewBag.day = d3.TotalDays;
 
                 if (movement != null)
                 {
@@ -108,13 +108,14 @@ namespace LibraryWithMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult ReturnTheBookClick(int id, DateTime returnDate)
+        public ActionResult ReturnTheBookClick(int id, DateTime returnDate, int numberOfDate)
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
                 var movement = db.tbl_movement.Find(id);
                 if (movement != null)
                 {
+                    //Kitabın durumunu true yap
                     var book = db.tbl_book.Find(movement.mvm_bk);
                     if (book != null)
                     {
@@ -122,11 +123,24 @@ namespace LibraryWithMVC.Controllers
                         db.Entry(book).State = System.Data.Entity.EntityState.Modified;
                     }
 
+                    //Eğer teslim tarihi 30 günden fazla ise ceza uygula
+                    if (numberOfDate > 30)
+                    {
+                        tbl_punishment punishment = new tbl_punishment();
+                        punishment.pnh_mvm = movement.mvm_id;
+                        punishment.pnh_mmb = movement.mvm_mmb;
+                        punishment.pnh_begining = movement.mvm_receipt_date;
+                        punishment.pnh_finish = returnDate;
+                        punishment.pnh_money = (numberOfDate - 30) * 5;
+                        db.tbl_punishment.Add(punishment);
+                        db.SaveChanges();
+                    }
+
+                    //Hareketin durumunu true yap ve teslim tarihini güncelle
                     movement.mvm_status = true;
                     movement.mvm_return_date = returnDate;
 
                     db.Entry(movement).State = System.Data.Entity.EntityState.Modified;
-
                     db.SaveChanges();
                 }
 

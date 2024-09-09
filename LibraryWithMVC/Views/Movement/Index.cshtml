@@ -31,7 +31,7 @@
                 <td>@item.mvm_receipt_date.Value.ToString("dd MMMM yyyy")</td>
                 <td>@(item.mvm_return_date != null ? item.mvm_return_date.Value.ToString("dd MMMM yyyy"): "Kitap Henüz Geri Verilmemiş")</td>
                 <td class="text-center align-middle">
-                    <a href="/#/@item.mvm_id" class="btn btn-outline-dark">Detaylar</a>
+                    <a href="/Movement/Detail/@item.mvm_id" class="btn btn-outline-dark">Detaylar</a>
                 </td>
             </tr>
         }
