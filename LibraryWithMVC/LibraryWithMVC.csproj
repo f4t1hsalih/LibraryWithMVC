@@ -459,6 +459,7 @@
     <Content Include="Templates\webregister\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Templates\webregister\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
