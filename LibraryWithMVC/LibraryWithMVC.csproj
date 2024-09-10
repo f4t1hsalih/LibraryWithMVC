@@ -166,6 +166,7 @@
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\BorrowController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\MovementController.cs" />
     <Compile Include="Controllers\ShowcaseController.cs" />
@@ -345,6 +346,20 @@
     <Content Include="Templates\webhava\js\jquery-2.1.4.min.js" />
     <Content Include="Templates\webhava\js\skycons.js" />
     <Content Include="Templates\webhava\w3layouts-License.txt" />
+    <Content Include="Templates\weblogin\css\fontawesome-all.css" />
+    <Content Include="Templates\weblogin\css\style.css" />
+    <Content Include="Templates\weblogin\images\cover4.jpg" />
+    <Content Include="Templates\weblogin\index.html" />
+    <Content Include="Templates\weblogin\w3layouts-License.txt" />
+    <Content Include="Templates\weblogin\webfonts\fa-brands-400.svg" />
+    <Content Include="Templates\weblogin\webfonts\fa-regular-400.svg" />
+    <Content Include="Templates\weblogin\webfonts\fa-solid-900.svg" />
+    <Content Include="Templates\webregister\css\font-awesome.css" />
+    <Content Include="Templates\webregister\css\style.css" />
+    <Content Include="Templates\webregister\fonts\fontawesome-webfont.svg" />
+    <Content Include="Templates\webregister\images\bg.jpg" />
+    <Content Include="Templates\webregister\index.html" />
+    <Content Include="Templates\webregister\w3layouts-License.txt" />
     <Content Include="Templates\web\.gitignore" />
     <Content Include="Templates\web\css\freelancer.min.css" />
     <Content Include="Templates\web\gulpfile.js" />
@@ -424,6 +439,26 @@
     <Content Include="Views\Statistic\Gallery.cshtml" />
     <Content Include="Views\Movement\Detail.cshtml" />
     <Content Include="Views\Statistic\LinqCards.cshtml" />
+    <Content Include="Templates\weblogin\webfonts\fa-brands-400.eot" />
+    <Content Include="Templates\weblogin\webfonts\fa-brands-400.ttf" />
+    <Content Include="Templates\weblogin\webfonts\fa-brands-400.woff" />
+    <Content Include="Templates\weblogin\webfonts\fa-brands-400.woff2" />
+    <Content Include="Templates\weblogin\webfonts\fa-regular-400.eot" />
+    <Content Include="Templates\weblogin\webfonts\fa-regular-400.ttf" />
+    <Content Include="Templates\weblogin\webfonts\fa-regular-400.woff" />
+    <Content Include="Templates\weblogin\webfonts\fa-regular-400.woff2" />
+    <Content Include="Templates\weblogin\webfonts\fa-solid-900.eot" />
+    <Content Include="Templates\weblogin\webfonts\fa-solid-900.ttf" />
+    <Content Include="Templates\weblogin\webfonts\fa-solid-900.woff" />
+    <Content Include="Templates\weblogin\webfonts\fa-solid-900.woff2" />
+    <Content Include="Templates\webregister\fonts\fontawesome-webfont.eot" />
+    <Content Include="Templates\webregister\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Templates\webregister\fonts\fontawesome-webfont.woff" />
+    <Content Include="Templates\webregister\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Templates\webregister\fonts\FontAwesome.otf" />
+    <Content Include="Templates\webregister\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Templates\webregister\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
