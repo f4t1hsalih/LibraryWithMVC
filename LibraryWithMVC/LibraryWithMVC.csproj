@@ -172,6 +172,7 @@
     <Compile Include="Controllers\ShowcaseController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
+    <Compile Include="Controllers\StudentPanelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -354,6 +355,24 @@
     <Content Include="Templates\weblogin\webfonts\fa-brands-400.svg" />
     <Content Include="Templates\weblogin\webfonts\fa-regular-400.svg" />
     <Content Include="Templates\weblogin\webfonts\fa-solid-900.svg" />
+    <Content Include="Templates\webpanel\.gitignore" />
+    <Content Include="Templates\webpanel\css\simple-sidebar.css" />
+    <Content Include="Templates\webpanel\gulpfile.js" />
+    <Content Include="Templates\webpanel\index.html" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Templates\webpanel\vendor\jquery\jquery.js" />
+    <Content Include="Templates\webpanel\vendor\jquery\jquery.min.js" />
+    <Content Include="Templates\webpanel\vendor\jquery\jquery.slim.js" />
+    <Content Include="Templates\webpanel\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Templates\webregister\css\font-awesome.css" />
     <Content Include="Templates\webregister\css\style.css" />
     <Content Include="Templates\webregister\fonts\fontawesome-webfont.svg" />
@@ -460,6 +479,25 @@
     <Content Include="Templates\webregister\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Templates\webpanel\.travis.yml" />
+    <Content Include="Templates\webpanel\LICENSE" />
+    <Content Include="Templates\webpanel\package-lock.json" />
+    <Content Include="Templates\webpanel\package.json" />
+    <Content Include="Templates\webpanel\README.md" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Templates\webpanel\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Templates\webpanel\vendor\jquery\jquery.min.map" />
+    <Content Include="Templates\webpanel\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Views\Shared\_StudentPanelLayout.cshtml" />
+    <Content Include="Views\StudentPanel\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
