@@ -22,8 +22,14 @@ namespace LibraryWithMVC.Controllers
                 if (mmb != null)
                 {
                     FormsAuthentication.SetAuthCookie(mmb.mmb_name + " " + mmb.mmb_surname, false);
-                    Session.Add("id", mmb.mmb_id);
-                    return RedirectToAction("Index","StudentPanel");
+                    //Session.Add("id", mmb.mmb_id);
+                    Session["Name"] = mmb.mmb_name;
+                    Session["Surname"] = mmb.mmb_surname;
+                    Session["Email"] = mmb.mmb_email;
+                    Session["Username"] = mmb.mmb_username;
+                    Session["Tel"] = mmb.mmb_tel;
+                    Session["School"] = mmb.mmb_school;
+                    return RedirectToAction("Index", "StudentPanel");
                 }
                 else { return View(member); }
             }
