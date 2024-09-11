@@ -1,50 +1,85 @@
-﻿
+﻿@model LibraryWithMVC.Models.Entity.tbl_member
 @{
     ViewBag.Title = "Student";
     Layout = "~/Views/Shared/_StudentPanelLayout.cshtml";
 }
 
-<h2>Student</h2>
+<h2>Öğrenci Bilgileri</h2>
+
+@*
+    <table class="table table-hover">
+        <tr>
+            <td>
+                <label style="font-weight:bold">Ad-Soyad:</label> @HttpContext.Current.User.Identity.Name
+            </td>
+        </tr>
+        <!--<tr>
+            <td>
+                @Session["id"]
+        </td>
+        </tr>-->
+        <tr>
+            <td>
+                <label style="font-weight:bolder">Ad:</label><!--@Session["Name"]--> @TempData["Name"]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label style="font-weight:bold">Soyad:</label><!--@Session["Surname"]--> @TempData["Surname"]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label style="font-weight:bold">E-Mail:</label><!--@Session["Email"]--> @TempData["Email"]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label style="font-weight:bold">Kullanıcı Adı:</label> <!--@Session["Username"]--> @TempData["Username"]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label style="font-weight:bold">Telefon:</label> <!--@Session["Tel"]--> @TempData["Tel"]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label style="font-weight:bold">Okul:</label> <!--@Session["School"]--> @TempData["School"]
+            </td>
+        </tr>
+    </table>
+*@
 
 <table class="table table-hover">
     <tr>
         <td>
-            <label style="font-weight:bold">Ad-Soyad:</label> @HttpContext.Current.User.Identity.Name
-        </td>
-    </tr>
-    <!--<tr>
-        <td>-->
-            @*@Session["id"]*@
-        <!--</td>
-    </tr>-->
-    <tr>
-        <td>
-           <label style="font-weight:bolder">Ad:</label> @TempData["Name"]
+            <label style="font-weight:bolder">Ad:</label> @Model.mmb_name
         </td>
     </tr>
     <tr>
         <td>
-            <label style="font-weight:bold">Soyad:</label> @TempData["Surname"]
+            <label style="font-weight:bold">Soyad:</label> @Model.mmb_surname
         </td>
     </tr>
     <tr>
         <td>
-            <label style="font-weight:bold">E-Mail:</label> @TempData["Email"]
+            <label style="font-weight:bold">E-Mail:</label> @Model.mmb_email
         </td>
     </tr>
     <tr>
         <td>
-            <label style="font-weight:bold">Kullanıcı Adı:</label> @TempData["Username"]
+            <label style="font-weight:bold">Kullanıcı Adı:</label> @Model.mmb_username
         </td>
     </tr>
     <tr>
         <td>
-            <label style="font-weight:bold">Telefon:</label> @TempData["Tel"]
+            <label style="font-weight:bold">Telefon:</label> @Model.mmb_tel
         </td>
     </tr>
     <tr>
         <td>
-            <label style="font-weight:bold">Okul:</label> @TempData["School"]
+            <label style="font-weight:bold">Okul:</label> @Model.mmb_school
         </td>
     </tr>
 </table>
