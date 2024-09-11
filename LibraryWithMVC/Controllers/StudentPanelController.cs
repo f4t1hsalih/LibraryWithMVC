@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace LibraryWithMVC.Controllers
 {
+    [Authorize]
     public class StudentPanelController : Controller
     {
         // GET: StudentPanel
