@@ -498,6 +498,7 @@
     <Content Include="Templates\webpanel\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Shared\_StudentPanelLayout.cshtml" />
     <Content Include="Views\StudentPanel\Index.cshtml" />
+    <Content Include="Views\StudentPanel\EditProfile.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

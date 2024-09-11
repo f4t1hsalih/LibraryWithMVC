@@ -1,31 +1,30 @@
 ﻿@model LibraryWithMVC.Models.Entity.tbl_member
-
 @{
-    ViewBag.Title = "Üye Güncelle";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Bilgi Güncelleme";
+    Layout = "~/Views/Shared/_StudentPanelLayout.cshtml";
 }
 
-<h2>Üye Güncelle</h2>
+<h2>Profil Bilgileri Güncelleme</h2>
 <hr />
 
-@using (Html.BeginForm("EditMember", "Member", FormMethod.Post))
+@using (Html.BeginForm("EditProfile", "StudentPanel", FormMethod.Post))
 {
     @Html.HiddenFor(x => x.mmb_id)
 
     <div class="form-group mt-3">
-        @Html.LabelFor(x => x.mmb_name, "Üye Adı")
+        @Html.LabelFor(x => x.mmb_name, "Ad")
         @Html.TextBoxFor(x => x.mmb_name, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.mmb_name, "", new { @style = "color:red" })
     </div>
 
     <div class="form-group mt-3">
-        @Html.LabelFor(x => x.mmb_surname, "Üye Soyadı")
+        @Html.LabelFor(x => x.mmb_surname, "Soyad")
         @Html.TextBoxFor(x => x.mmb_surname, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.mmb_surname, "", new { @style = "color:red" })
     </div>
 
     <div class="form-group mt-3">
-        @Html.LabelFor(x => x.mmb_email, "Üye Mail")
+        @Html.LabelFor(x => x.mmb_email, "Mail")
         @Html.TextBoxFor(x => x.mmb_email, new { @class = "form-control", type = "email" })
         @Html.ValidationMessageFor(x => x.mmb_email, "", new { @style = "color:red" })
     </div>
@@ -43,19 +42,19 @@
     </div>
 
     <div class="form-group mt-3">
-        @Html.LabelFor(x => x.mmb_photo, "Üye Fotoğraf")
+        @Html.LabelFor(x => x.mmb_photo, "Fotoğraf")
         @Html.TextBoxFor(x => x.mmb_photo, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.mmb_photo, "", new { @style = "color:red" })
     </div>
 
     <div class="form-group mt-3">
-        @Html.LabelFor(x => x.mmb_tel, "Üye Telefon")
+        @Html.LabelFor(x => x.mmb_tel, "Telefon")
         @Html.TextBoxFor(x => x.mmb_tel, new { @class = "form-control", type = "tel" })
         @Html.ValidationMessageFor(x => x.mmb_tel, "", new { @style = "color:red" })
     </div>
 
     <div class="form-group mt-3">
-        @Html.LabelFor(x => x.mmb_school, "Üye Okul")
+        @Html.LabelFor(x => x.mmb_school, "Okul")
         @Html.TextBoxFor(x => x.mmb_school, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.mmb_school, "", new { @style = "color:red" })
     </div>
@@ -64,3 +63,4 @@
         <button type="submit" class="btn btn-primary">Güncelle</button>
     </div>
 }
+
