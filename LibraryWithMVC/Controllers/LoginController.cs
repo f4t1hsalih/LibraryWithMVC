@@ -21,14 +21,28 @@ namespace LibraryWithMVC.Controllers
                 tbl_member mmb = db.tbl_member.FirstOrDefault(x => x.mmb_username == member.mmb_username && x.mmb_password == member.mmb_password);
                 if (mmb != null)
                 {
+                    //FormsAuthentication ile veri çekme
                     FormsAuthentication.SetAuthCookie(mmb.mmb_name + " " + mmb.mmb_surname, false);
+
+                    //Session farklı Kullanımı
                     //Session.Add("id", mmb.mmb_id);
-                    Session["Name"] = mmb.mmb_name;
-                    Session["Surname"] = mmb.mmb_surname;
-                    Session["Email"] = mmb.mmb_email;
-                    Session["Username"] = mmb.mmb_username;
-                    Session["Tel"] = mmb.mmb_tel;
-                    Session["School"] = mmb.mmb_school;
+
+                    //Session ile tüm verileri çekme
+                    //Session["Name"] = mmb.mmb_name;
+                    //Session["Surname"] = mmb.mmb_surname;
+                    //Session["Email"] = mmb.mmb_email;
+                    //Session["Username"] = mmb.mmb_username;
+                    //Session["Tel"] = mmb.mmb_tel;
+                    //Session["School"] = mmb.mmb_school;
+
+                    //TempData ile Veri Çekme
+                    TempData["Name"] = mmb.mmb_name;
+                    TempData["Surname"] = mmb.mmb_surname;
+                    TempData["Email"] = mmb.mmb_email;
+                    TempData["Username"] = mmb.mmb_username;
+                    TempData["Tel"] = mmb.mmb_tel;
+                    TempData["School"] = mmb.mmb_school;
+
                     return RedirectToAction("Index", "StudentPanel");
                 }
                 else { return View(member); }
