@@ -22,6 +22,7 @@
         <AssociationConnector Association="DB_LibraryWithMVCModel.FK_tbl_punishment_tbl_movement" ManuallyRouted="false" />
         <EntityTypeShape EntityType="DB_LibraryWithMVCModel.tbl_about" Width="1.5" PointX="7.375" PointY="3.75" />
         <EntityTypeShape EntityType="DB_LibraryWithMVCModel.tbl_communication" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="DB_LibraryWithMVCModel.tbl_message" Width="1.5" PointX="9.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

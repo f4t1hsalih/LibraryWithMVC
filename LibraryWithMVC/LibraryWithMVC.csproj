@@ -216,6 +216,9 @@
     <Compile Include="Models\Entity\tbl_member.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entity\tbl_message.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entity\tbl_movement.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
