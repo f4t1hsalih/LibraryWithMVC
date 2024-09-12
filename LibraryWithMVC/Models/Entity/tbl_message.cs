@@ -15,10 +15,13 @@ namespace LibraryWithMVC.Models.Entity
     public partial class tbl_message
     {
         public int msg_id { get; set; }
-        public string msg_sender { get; set; }
-        public string msg_recipient { get; set; }
+        public Nullable<int> msg_sender { get; set; }
+        public Nullable<int> msg_recipient { get; set; }
         public string msg_subject { get; set; }
         public string msg_content { get; set; }
         public Nullable<System.DateTime> msg_date { get; set; }
+    
+        public virtual tbl_member tbl_member { get; set; }
+        public virtual tbl_member tbl_member1 { get; set; }
     }
 }

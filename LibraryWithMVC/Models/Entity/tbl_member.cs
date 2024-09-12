@@ -19,6 +19,8 @@ namespace LibraryWithMVC.Models.Entity
         {
             this.tbl_movement = new HashSet<tbl_movement>();
             this.tbl_punishment = new HashSet<tbl_punishment>();
+            this.tbl_message = new HashSet<tbl_message>();
+            this.tbl_message1 = new HashSet<tbl_message>();
         }
     
         public int mmb_id { get; set; }
@@ -35,5 +37,9 @@ namespace LibraryWithMVC.Models.Entity
         public virtual ICollection<tbl_movement> tbl_movement { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_punishment> tbl_punishment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_message> tbl_message { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_message> tbl_message1 { get; set; }
     }
 }

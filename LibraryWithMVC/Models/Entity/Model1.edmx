@@ -81,8 +81,8 @@
             <PropertyRef Name="msg_id" />
           </Key>
           <Property Name="msg_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="msg_sender" Type="varchar" MaxLength="50" />
-          <Property Name="msg_recipient" Type="varchar" MaxLength="50" />
+          <Property Name="msg_sender" Type="int" />
+          <Property Name="msg_recipient" Type="int" />
           <Property Name="msg_subject" Type="varchar" MaxLength="50" />
           <Property Name="msg_content" Type="varchar" MaxLength="500" />
           <Property Name="msg_date" Type="smalldatetime" />
@@ -148,6 +148,30 @@
             </Principal>
             <Dependent Role="tbl_book">
               <PropertyRef Name="bk_ctg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_message_tbl_member">
+          <End Role="tbl_member" Type="Self.tbl_member" Multiplicity="0..1" />
+          <End Role="tbl_message" Type="Self.tbl_message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_member">
+              <PropertyRef Name="mmb_id" />
+            </Principal>
+            <Dependent Role="tbl_message">
+              <PropertyRef Name="msg_sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_message_tbl_member1">
+          <End Role="tbl_member" Type="Self.tbl_member" Multiplicity="0..1" />
+          <End Role="tbl_message" Type="Self.tbl_message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_member">
+              <PropertyRef Name="mmb_id" />
+            </Principal>
+            <Dependent Role="tbl_message">
+              <PropertyRef Name="msg_recipient" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -232,6 +256,14 @@
           <AssociationSet Name="FK_tbl_book_tbl_category" Association="Self.FK_tbl_book_tbl_category">
             <End Role="tbl_category" EntitySet="tbl_category" />
             <End Role="tbl_book" EntitySet="tbl_book" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_message_tbl_member" Association="Self.FK_tbl_message_tbl_member">
+            <End Role="tbl_member" EntitySet="tbl_member" />
+            <End Role="tbl_message" EntitySet="tbl_message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_message_tbl_member1" Association="Self.FK_tbl_message_tbl_member1">
+            <End Role="tbl_member" EntitySet="tbl_member" />
+            <End Role="tbl_message" EntitySet="tbl_message" />
           </AssociationSet>
           <AssociationSet Name="FK_tbl_movement_tbl_book" Association="Self.FK_tbl_movement_tbl_book">
             <End Role="tbl_book" EntitySet="tbl_book" />
@@ -318,6 +350,8 @@
           <Property Name="mmb_school" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tbl_movement" Relationship="Self.FK_tbl_movement_tbl_member" FromRole="tbl_member" ToRole="tbl_movement" />
           <NavigationProperty Name="tbl_punishment" Relationship="Self.FK_tbl_punishment_tbl_member" FromRole="tbl_member" ToRole="tbl_punishment" />
+          <NavigationProperty Name="tbl_message" Relationship="DB_LibraryWithMVCModel.FK_tbl_message_tbl_member" FromRole="tbl_member" ToRole="tbl_message" />
+          <NavigationProperty Name="tbl_message1" Relationship="DB_LibraryWithMVCModel.FK_tbl_message_tbl_member1" FromRole="tbl_member" ToRole="tbl_message" />
         </EntityType>
         <EntityType Name="tbl_movement">
           <Key>
@@ -492,6 +526,14 @@
           <EntitySet Name="tbl_communication" EntityType="DB_LibraryWithMVCModel.tbl_communication" />
           <FunctionImport Name="GetTopAuthorByBookCount" ReturnType="Collection(DB_LibraryWithMVCModel.GetTopAuthorByBookCount_Result)" />
           <EntitySet Name="tbl_message" EntityType="DB_LibraryWithMVCModel.tbl_message" />
+          <AssociationSet Name="FK_tbl_message_tbl_member" Association="DB_LibraryWithMVCModel.FK_tbl_message_tbl_member">
+            <End Role="tbl_member" EntitySet="tbl_member" />
+            <End Role="tbl_message" EntitySet="tbl_message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_message_tbl_member1" Association="DB_LibraryWithMVCModel.FK_tbl_message_tbl_member1">
+            <End Role="tbl_member" EntitySet="tbl_member" />
+            <End Role="tbl_message" EntitySet="tbl_message" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="tbl_about">
           <Key>
@@ -519,12 +561,38 @@
             <PropertyRef Name="msg_id" />
           </Key>
           <Property Name="msg_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="msg_sender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="msg_recipient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="msg_sender" Type="Int32" />
+          <Property Name="msg_recipient" Type="Int32" />
           <Property Name="msg_subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="msg_content" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="msg_date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tbl_member" Relationship="DB_LibraryWithMVCModel.FK_tbl_message_tbl_member" FromRole="tbl_message" ToRole="tbl_member" />
+          <NavigationProperty Name="tbl_member1" Relationship="DB_LibraryWithMVCModel.FK_tbl_message_tbl_member1" FromRole="tbl_message" ToRole="tbl_member" />
         </EntityType>
+        <Association Name="FK_tbl_message_tbl_member">
+          <End Type="DB_LibraryWithMVCModel.tbl_member" Role="tbl_member" Multiplicity="0..1" />
+          <End Type="DB_LibraryWithMVCModel.tbl_message" Role="tbl_message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_member">
+              <PropertyRef Name="mmb_id" />
+            </Principal>
+            <Dependent Role="tbl_message">
+              <PropertyRef Name="msg_sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_message_tbl_member1">
+          <End Type="DB_LibraryWithMVCModel.tbl_member" Role="tbl_member" Multiplicity="0..1" />
+          <End Type="DB_LibraryWithMVCModel.tbl_message" Role="tbl_message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_member">
+              <PropertyRef Name="mmb_id" />
+            </Principal>
+            <Dependent Role="tbl_message">
+              <PropertyRef Name="msg_recipient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

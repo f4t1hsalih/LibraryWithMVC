@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using LibraryWithMVC.Models.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace LibraryWithMVC.Controllers
@@ -11,7 +9,12 @@ namespace LibraryWithMVC.Controllers
         // GET: Message
         public ActionResult Index()
         {
-            return View();
+            DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities();
+
+            int id = (int)Session["id"];
+            var values = db.tbl_message.Where(x => x.msg_recipient == id).ToList();
+            return View(values);
+
         }
 
         public ActionResult NewMessage()
