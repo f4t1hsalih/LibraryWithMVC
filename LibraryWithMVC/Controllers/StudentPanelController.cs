@@ -44,21 +44,21 @@ namespace LibraryWithMVC.Controllers
                 value.mmb_password = mem.mmb_password;
                 db.Entry(value).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
-                return View("Index",value);
+                return View("Index", value);
             }
         }
         public ActionResult Exit()
         {
             Session.Clear();
-            return RedirectToAction("Index","Showcase");
+            return RedirectToAction("Index", "Showcase");
         }
 
         public ActionResult MyBooks()
         {
-            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
-            {
-                return View();
-            }
+            DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities();
+
+            var values = db.tbl_movement.Where(x => x.mvm_status == true).ToList();
+            return View(values);
         }
     }
 }
