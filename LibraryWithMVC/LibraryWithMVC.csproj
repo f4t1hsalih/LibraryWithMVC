@@ -504,6 +504,7 @@
     <Content Include="Views\StudentPanel\Index.cshtml" />
     <Content Include="Views\StudentPanel\EditProfile.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Message\NewMessage.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

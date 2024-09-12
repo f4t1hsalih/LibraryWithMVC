@@ -1,4 +1,5 @@
 ﻿using LibraryWithMVC.Models.Entity;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -17,9 +18,18 @@ namespace LibraryWithMVC.Controllers
 
         }
 
+        [HttpGet]
         public ActionResult NewMessage()
         {
-            return RedirectToAction("Index");
+            DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities();
+            List<SelectListItem> members = (from x in db.tbl_member.ToList()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.mmb_email,
+                                                Value = x.mmb_id.ToString()
+                                            }).ToList();
+            ViewBag.Recipient = members;
+            return View();
         }
     }
 }
