@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Mesajlar";
+    Layout = "~/Views/Shared/_StudentPanelLayout.cshtml";
+}
+
+<h2>Mesajlar</h2>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.#_id</td>
+               
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Message/NewMessage/" class="btn btn-outline-primary">Yeni Mesaj Yaz</a>
+
+
