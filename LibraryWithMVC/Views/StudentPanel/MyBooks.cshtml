@@ -1,0 +1,31 @@
+﻿@model List<LibraryWithMVC.Models.Entity.tbl_movement>
+@{
+    ViewBag.Title = "Kitaplarım";
+    Layout = "~/Views/Shared/_StudentPanelLayout.cshtml";
+}
+
+<h2>Okuduğum Kitaplar</h2>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Kitap</th>
+            <th>Teslim Alma Tarihi</th>
+            <th>Geri Verme Tarihi</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*@foreach (var item in Model)
+        {
+            <tr>
+                <td>@(item.tbl_book != null ? item.tbl_book.bk_name: "Kitap bilgisi yok")</td>
+                <td>@item.mvm_receipt_date.Value.ToString("dd MMMM yyyy")</td>
+                <td>@item.mvm_delivery_date.Value.ToString("dd MMMM yyyy")</td>
+                <td>@item.mvm_delivery_date.Value.ToString("dd MMMM yyyy")</td>
+            </tr>
+        }*@
+    </tbody>
+
+</table>

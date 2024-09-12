@@ -52,5 +52,13 @@ namespace LibraryWithMVC.Controllers
             Session.Clear();
             return RedirectToAction("Index","Showcase");
         }
+
+        public ActionResult MyBooks()
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                return View();
+            }
+        }
     }
 }
