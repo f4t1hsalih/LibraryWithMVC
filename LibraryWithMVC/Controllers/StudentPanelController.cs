@@ -56,8 +56,8 @@ namespace LibraryWithMVC.Controllers
         public ActionResult MyBooks()
         {
             DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities();
-
-            var values = db.tbl_movement.Where(x => x.mvm_status == true).ToList();
+            int id = Convert.ToInt32(Session["id"].ToString());
+            var values = db.tbl_movement.Where(x => x.mvm_mmb == id).ToList();
             return View(values);
         }
     }
