@@ -1,0 +1,32 @@
+﻿@model List<LibraryWithMVC.Models.Entity.tbl_message>
+@{
+    ViewBag.Title = "Gelen Mesajlar";
+    Layout = "~/Views/Shared/_StudentPanelLayout.cshtml";
+}
+
+<h2>Gelen Mesajlar</h2>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Alıcı</th>
+            <th>Konu</th>
+            <th>Mesaj</th>
+            <th>Tarih</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.msg_id</td>
+                <td>@item.msg_recipient</td>
+                <td>@item.msg_subject</td>
+                <td>@item.msg_content</td>
+                <td>@item.msg_date.Value.ToString("dd MMMM yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>

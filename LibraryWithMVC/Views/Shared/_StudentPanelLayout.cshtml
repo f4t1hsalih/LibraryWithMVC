@@ -31,10 +31,21 @@
             <div class="sidebar-heading font-weight-bold">@ViewBag.fullname</div>
             <div class="list-group list-group-flush">
                 <a href="/StudentPanel/Index/" class="list-group-item list-group-item-action bg-light">Profilim</a>
-                <a href="/Message/Index/" class="list-group-item list-group-item-action bg-light">Mesajlar</a>
+
+                <!-- Mesajlar dropdown -->
+                <a href="/Message/Index" class="list-group-item list-group-item-action bg-light d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#messagesSubmenu" aria-expanded="false">
+                    Mesajlar
+                    <span class="caret">&#9662;</span> <!-- Ok simgesi -->
+                </a>
+                <div class="collapse" id="messagesSubmenu">
+                    <a href="/Message/NewMessage" class="list-group-item list-group-item-action bg-light">Mesaj Yaz</a>
+                    <a href="/Message/Index" class="list-group-item list-group-item-action bg-light">Gelen Mesajlar</a>
+                    <a href="/Message/SendMessage" class="list-group-item list-group-item-action bg-light">Gönderilen Mesajlar</a>
+                </div>
+
                 <a href="#" class="list-group-item list-group-item-action bg-light">Duyurular</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Kitaplarım</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Vitrin</a>
+                <a href="/Showcase/Index/" class="list-group-item list-group-item-action bg-light">Vitrin</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Yardım</a>
             </div>
         </div>
@@ -52,7 +63,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Hakkımızda <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/Showcase/Index/#about">Hakkımızda <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
