@@ -32,6 +32,7 @@ namespace LibraryWithMVC.Models.Entity
         public string mmb_photo { get; set; }
         public string mmb_tel { get; set; }
         public string mmb_school { get; set; }
+        public Nullable<bool> mmb_status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_movement> tbl_movement { get; set; }

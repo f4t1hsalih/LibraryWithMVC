@@ -8,6 +8,14 @@
 <h2>Yazar Listesi</h2>
 <hr />
 
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" id="errorAlert">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -28,10 +36,20 @@
                 <td>@item.ath_surname</td>
                 <td>@item.ath_detail</td>
                 <td><a href="/Author/EditAuthor/@item.ath_id" class="btn btn-primary">Güncelle</a></td>
-                <td>@Html.ActionLink("Sil", "DeleteAuthor", new {id = item.ath_id }, new {@class= "btn btn-danger", onclick="return confirm('Silmek İstediğinize Emin Misiniz?')"})</td>
+                <td>@Html.ActionLink("Sil", "DeleteAuthor", new { id = item.ath_id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek İstediğinize Emin Misiniz?')" })</td>
             </tr>
         }
     </tbody>
 </table>
 
 <a href="/Author/AddAuthor/" class="btn btn-outline-primary">Yeni Yazar Ekle</a>
+
+<script>
+    // Sayfa yüklendikten sonra 5 saniye sonra alerti gizleyen kod
+    setTimeout(function () {
+        var errorAlert = document.getElementById("errorAlert");
+        if (errorAlert) {
+            errorAlert.style.display = "none";
+        }
+    }, 5000); // 5000 milisaniye = 5 saniye
+</script>

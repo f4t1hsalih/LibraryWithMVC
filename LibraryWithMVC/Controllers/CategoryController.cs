@@ -11,7 +11,7 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
-                return View(db.tbl_category.ToList());
+                return View(db.tbl_category.Where(x => x.ctg_status == true).ToList());
             }
         }
 
@@ -26,6 +26,7 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
+                category.ctg_status = true;
                 db.tbl_category.Add(category);
                 db.SaveChanges();
             }
@@ -38,7 +39,8 @@ namespace LibraryWithMVC.Controllers
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
                 tbl_category category = db.tbl_category.Find(id);
-                db.tbl_category.Remove(category);
+                category.ctg_status = false;
+                //db.Entry(category).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
             }
             return RedirectToAction("Index");

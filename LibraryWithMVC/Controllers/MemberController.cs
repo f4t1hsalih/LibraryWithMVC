@@ -1,8 +1,7 @@
 ﻿using LibraryWithMVC.Models.Entity;
+using PagedList;
 using System.Linq;
 using System.Web.Mvc;
-using PagedList;
-using PagedList.Mvc;
 
 namespace LibraryWithMVC.Controllers
 {
@@ -14,7 +13,7 @@ namespace LibraryWithMVC.Controllers
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
                 //var member = db.tbl_member.ToList();
-                var members = db.tbl_member.ToList().ToPagedList(page, 5);
+                var members = db.tbl_member.Where(x => x.mmb_status == true).ToList().ToPagedList(page, 8);
                 return View(members);
             }
         }
@@ -33,6 +32,7 @@ namespace LibraryWithMVC.Controllers
                 ModelState.Remove("mmb_id");
                 if (ModelState.IsValid)
                 {
+                    member.mmb_status = true;
                     db.tbl_member.Add(member);
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -49,12 +49,25 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
+                // Üyenin aktif kitabı olup olmadığını kontrol et
+                var hasActiveBooks = db.tbl_movement.Any(x => x.mvm_mmb == id && x.mvm_return_date == null);
+
+                if (hasActiveBooks)
+                {
+                    TempData["ErrorMessage"] = "Üyenin iade edilmemiş kitapları olduğu için silinemez.";
+                    return RedirectToAction("Index");
+                }
+
                 tbl_member member = db.tbl_member.Find(id);
-                db.tbl_member.Remove(member);
-                db.SaveChanges();
+                if (member != null)
+                {
+                    member.mmb_status = false;
+                    db.SaveChanges();
+                }
             }
             return RedirectToAction("Index");
         }
+
 
         // GET: EditMember
         [HttpGet]
@@ -62,7 +75,7 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
-                tbl_member member = db.tbl_member.Find(id);
+                tbl_member member = db.tbl_member.Where(x => x.mmb_status == true).FirstOrDefault(x => x.mmb_id == id);
                 return View(member);
             }
         }

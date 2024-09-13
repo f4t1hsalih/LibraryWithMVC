@@ -22,14 +22,15 @@ namespace LibraryWithMVC.Models.Entity
         }
     
         public int ath_id { get; set; }
-        [Required(ErrorMessage ="Yazar Ýsmi Zorunludur!")]
-        [StringLength(30,ErrorMessage ="Yazar Adý Maksimum 30 Karekter Olabilir!")]
+        [Required(ErrorMessage = "Yazar Ýsmi Zorunludur!")]
+        [StringLength(30, ErrorMessage = "Yazar Adý Maksimum 30 Karekter Olabilir!")]
         public string ath_name { get; set; }
         [Required(ErrorMessage = "Yazar Soyadý Zorunludur!")]
         [StringLength(30, ErrorMessage = "Yazar Soyadý Maksimum 30 Karekter Olabilir!")]
         public string ath_surname { get; set; }
         [StringLength(1000, ErrorMessage = "Detay Bölümü Maksimum 1000 Karekter Olabilir!")]
         public string ath_detail { get; set; }
+        public Nullable<bool> ath_status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_book> tbl_book { get; set; }

@@ -8,6 +8,13 @@
 <h2>Kitap Listesi</h2>
 <hr />
 
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" id="errorAlert">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
 <!-- Arama Kutusu -->
 @using (Html.BeginForm("Index", "Book", FormMethod.Get))
 {
@@ -49,3 +56,13 @@
 </table>
 
 <a href="/Book/AddBook/" class="btn btn-outline-primary">Yeni Kitap Ekle</a>
+
+<script>
+    // Sayfa yüklendikten sonra 5 saniye sonra alerti gizleyen kod
+    setTimeout(function () {
+        var errorAlert = document.getElementById("errorAlert");
+        if (errorAlert) {
+            errorAlert.style.display = "none";
+        }
+    }, 5000); // 5000 milisaniye = 5 saniye
+</script>

@@ -30,6 +30,7 @@
           <Property Name="ath_name" Type="varchar" MaxLength="30" />
           <Property Name="ath_surname" Type="varchar" MaxLength="30" />
           <Property Name="ath_detail" Type="varchar" MaxLength="1000" />
+          <Property Name="ath_status" Type="bit" />
         </EntityType>
         <EntityType Name="tbl_book">
           <Key>
@@ -51,6 +52,7 @@
           </Key>
           <Property Name="ctg_id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ctg_name" Type="varchar" MaxLength="20" />
+          <Property Name="ctg_status" Type="bit" />
         </EntityType>
         <EntityType Name="tbl_communication">
           <Key>
@@ -75,6 +77,7 @@
           <Property Name="mmb_photo" Type="varchar" MaxLength="250" />
           <Property Name="mmb_tel" Type="varchar" MaxLength="20" />
           <Property Name="mmb_school" Type="varchar" MaxLength="100" />
+          <Property Name="mmb_status" Type="bit" />
         </EntityType>
         <EntityType Name="tbl_message">
           <Key>
@@ -126,6 +129,7 @@
           <Property Name="stf_id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="stf_name" Type="varchar" MaxLength="30" />
           <Property Name="stf_surname" Type="varchar" MaxLength="30" />
+          <Property Name="stf_status" Type="bit" />
         </EntityType>
         <Association Name="FK_tbl_book_tbl_author">
           <End Role="tbl_author" Type="Self.tbl_author" Multiplicity="0..1" />
@@ -309,6 +313,7 @@
           <Property Name="ath_surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="ath_detail" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tbl_book" Relationship="Self.FK_tbl_book_tbl_author" FromRole="tbl_author" ToRole="tbl_book" />
+          <Property Name="ath_status" Type="Boolean" />
         </EntityType>
         <EntityType Name="tbl_book">
           <Key>
@@ -334,6 +339,7 @@
           <Property Name="ctg_id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ctg_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tbl_book" Relationship="Self.FK_tbl_book_tbl_category" FromRole="tbl_category" ToRole="tbl_book" />
+          <Property Name="ctg_status" Type="Boolean" />
         </EntityType>
         <EntityType Name="tbl_member">
           <Key>
@@ -352,6 +358,7 @@
           <NavigationProperty Name="tbl_punishment" Relationship="Self.FK_tbl_punishment_tbl_member" FromRole="tbl_member" ToRole="tbl_punishment" />
           <NavigationProperty Name="tbl_message" Relationship="DB_LibraryWithMVCModel.FK_tbl_message_tbl_member" FromRole="tbl_member" ToRole="tbl_message" />
           <NavigationProperty Name="tbl_message1" Relationship="DB_LibraryWithMVCModel.FK_tbl_message_tbl_member1" FromRole="tbl_member" ToRole="tbl_message" />
+          <Property Name="mmb_status" Type="Boolean" />
         </EntityType>
         <EntityType Name="tbl_movement">
           <Key>
@@ -399,6 +406,7 @@
           <Property Name="stf_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="stf_surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tbl_movement" Relationship="Self.FK_tbl_movement_tbl_staff" FromRole="tbl_staff" ToRole="tbl_movement" />
+          <Property Name="stf_status" Type="Boolean" />
         </EntityType>
         <Association Name="FK_tbl_book_tbl_author">
           <End Role="tbl_author" Type="Self.tbl_author" Multiplicity="0..1" />
@@ -613,6 +621,7 @@
           <EntitySetMapping Name="tbl_author">
             <EntityTypeMapping TypeName="DB_LibraryWithMVCModel.tbl_author">
               <MappingFragment StoreEntitySet="tbl_author">
+                <ScalarProperty Name="ath_status" ColumnName="ath_status" />
                 <ScalarProperty Name="ath_id" ColumnName="ath_id" />
                 <ScalarProperty Name="ath_name" ColumnName="ath_name" />
                 <ScalarProperty Name="ath_surname" ColumnName="ath_surname" />
@@ -638,6 +647,7 @@
           <EntitySetMapping Name="tbl_category">
             <EntityTypeMapping TypeName="DB_LibraryWithMVCModel.tbl_category">
               <MappingFragment StoreEntitySet="tbl_category">
+                <ScalarProperty Name="ctg_status" ColumnName="ctg_status" />
                 <ScalarProperty Name="ctg_id" ColumnName="ctg_id" />
                 <ScalarProperty Name="ctg_name" ColumnName="ctg_name" />
               </MappingFragment>
@@ -646,6 +656,7 @@
           <EntitySetMapping Name="tbl_member">
             <EntityTypeMapping TypeName="DB_LibraryWithMVCModel.tbl_member">
               <MappingFragment StoreEntitySet="tbl_member">
+                <ScalarProperty Name="mmb_status" ColumnName="mmb_status" />
                 <ScalarProperty Name="mmb_id" ColumnName="mmb_id" />
                 <ScalarProperty Name="mmb_name" ColumnName="mmb_name" />
                 <ScalarProperty Name="mmb_surname" ColumnName="mmb_surname" />
@@ -696,6 +707,7 @@
           <EntitySetMapping Name="tbl_staff">
             <EntityTypeMapping TypeName="DB_LibraryWithMVCModel.tbl_staff">
               <MappingFragment StoreEntitySet="tbl_staff">
+                <ScalarProperty Name="stf_status" ColumnName="stf_status" />
                 <ScalarProperty Name="stf_id" ColumnName="stf_id" />
                 <ScalarProperty Name="stf_name" ColumnName="stf_name" />
                 <ScalarProperty Name="stf_surname" ColumnName="stf_surname" />

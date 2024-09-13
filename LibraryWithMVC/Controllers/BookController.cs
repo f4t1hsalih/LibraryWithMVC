@@ -57,14 +57,28 @@ namespace LibraryWithMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        //GET: DeleteBook
+        // GET: DeleteBook
         public ActionResult DeleteBook(int id)
         {
             var book = db.tbl_book.Find(id);
-            db.tbl_book.Remove(book);
-            db.SaveChanges();
+            if (book != null)
+            {
+                if (book.bk_status == true)
+                {
+                    db.tbl_book.Remove(book);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Kitap ödünç verildiği için silinemez.";
+                    return RedirectToAction("Index");
+                }
+            }
+            TempData["ErrorMessage"] = "Kitap bulunamadı.";
             return RedirectToAction("Index");
         }
+
 
         //GET :EditBook
         [HttpGet]

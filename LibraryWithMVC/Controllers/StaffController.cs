@@ -11,7 +11,7 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
-                var staff = db.tbl_staff.ToList();
+                var staff = db.tbl_staff.Where(x => x.stf_status == true).ToList();
                 return View(staff);
             }
         }
@@ -30,6 +30,7 @@ namespace LibraryWithMVC.Controllers
                 ModelState.Remove("stf_id");
                 if (ModelState.IsValid)
                 {
+                    staff.stf_status = true;
                     db.tbl_staff.Add(staff);
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -46,7 +47,8 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
-                db.tbl_staff.Remove(db.tbl_staff.Find(id));
+                var value = db.tbl_staff.Find(id);
+                value.stf_status = false;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -58,7 +60,7 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
-                var value = db.tbl_staff.Find(id);
+                var value = db.tbl_staff.Where(x => x.stf_status == true).FirstOrDefault(x => x.stf_id == id);
                 return View(value);
             }
         }
