@@ -24,10 +24,9 @@
             <th>Üye Adı</th>
             <th>Üye Soyadı</th>
             <th>Mail</th>
-            <th>Kullanıcı Adı</th>
-            <th>Şifre</th>
             <th>Telefon</th>
             <th>Okul</th>
+            <th>Kitap Geçmişi</th>
             <th>Güncelle</th>
             <th>Sil</th>
         </tr>
@@ -40,10 +39,9 @@
                 <td>@item.mmb_name</td>
                 <td>@item.mmb_surname</td>
                 <td>@item.mmb_email</td>
-                <td>@item.mmb_username</td>
-                <td>@item.mmb_password</td>
                 <td>@item.mmb_tel</td>
                 <td>@item.mmb_school</td>
+                <td><a href="/Member/MemberBookHistory/@item.mmb_id" class="btn btn-secondary">Kitap G.</a></td>
                 <td><a href="/Member/EditMember/@item.mmb_id" class="btn btn-primary">Güncelle</a></td>
                 <td>@Html.ActionLink("Sil", "DeleteMember", new { id = item.mmb_id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek İstediğinize Emin Misiniz?')" })</td>
             </tr>

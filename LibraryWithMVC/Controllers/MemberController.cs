@@ -89,5 +89,13 @@ namespace LibraryWithMVC.Controllers
             }
             return RedirectToAction("Index");
         }
+        public ActionResult MemberBookHistory(int id)
+        {
+            DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities();
+            var member = db.tbl_member.Where(x => x.mmb_status == true && x.mmb_id == id).FirstOrDefault();
+            ViewBag.Member = member.mmb_name + " " + member.mmb_surname;
+            var values = db.tbl_movement.Where(x => x.mvm_mmb == id).ToList();
+            return View(values);
+        }
     }
 }

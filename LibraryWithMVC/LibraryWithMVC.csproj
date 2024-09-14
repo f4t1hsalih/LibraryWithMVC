@@ -508,6 +508,7 @@
     <Content Include="Views\Message\SendMessage.cshtml" />
     <Content Include="Views\StudentPanel\MyBooks.cshtml" />
     <Content Include="Views\Author\AuthorBooks.cshtml" />
+    <Content Include="Views\Member\MemberBookHistory.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
