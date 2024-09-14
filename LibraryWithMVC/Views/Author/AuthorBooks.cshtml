@@ -1,0 +1,34 @@
+﻿@model List<LibraryWithMVC.Models.Entity.tbl_book>
+@{
+    ViewBag.Title = "Yazar Kitapları";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Author Kitapları</h2>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Kitap</th>
+            <th>Kategori</th>
+            <th>Yayın Tarihi</th>
+            <th>Yayınevi</th>
+            <th>Sayfa Sayısı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.bk_name</td>
+                <td>@item.tbl_category.ctg_name</td>
+                <td>@item.bk_year_of_publication</td>
+                <td>@item.bk_publishing_house</td>
+                <td>@item.bk_page</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Author/Index/" class="btn btn-primary">Geri Dön</a>

@@ -95,5 +95,15 @@ namespace LibraryWithMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult AuthorBooks(int id)
+        {
+            DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities();
+
+            var author = db.tbl_author.Where(x => x.ath_id == id && x.ath_status == true).FirstOrDefault();
+            ViewBag.Author = author.ath_name + " " + author.ath_surname;
+            var values = db.tbl_book.Where(x => x.bk_ath == id && x.bk_status == true).ToList();
+            return View(values);
+        }
+
     }
 }
