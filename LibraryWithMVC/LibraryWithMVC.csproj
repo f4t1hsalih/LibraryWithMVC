@@ -162,6 +162,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AnnouncementController.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\BorrowController.cs" />
@@ -516,6 +517,9 @@
     <Content Include="Views\Member\MemberBookHistory.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\StudentPanel\Announcement.cshtml" />
+    <Content Include="Views\Announcement\Index.cshtml" />
+    <Content Include="Views\Announcement\AddAnnouncement.cshtml" />
+    <Content Include="Views\Announcement\EditAnnouncement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Exit\" />

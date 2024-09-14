@@ -30,6 +30,7 @@
           <Property Name="anc_category" Type="varchar" MaxLength="50" />
           <Property Name="anc_title" Type="varchar" MaxLength="100" />
           <Property Name="anc_message" Type="varchar" MaxLength="500" />
+          <Property Name="anc_beginDate" Type="smalldatetime" />
         </EntityType>
         <EntityType Name="tbl_author">
           <Key>
@@ -620,6 +621,7 @@
           <Property Name="anc_category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="anc_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="anc_message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="anc_beginDate" Type="DateTime" Precision="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -776,6 +778,7 @@
           <EntitySetMapping Name="tbl_announcement">
             <EntityTypeMapping TypeName="DB_LibraryWithMVCModel.tbl_announcement">
               <MappingFragment StoreEntitySet="tbl_announcement">
+                <ScalarProperty Name="anc_beginDate" ColumnName="anc_beginDate" />
                 <ScalarProperty Name="anc_message" ColumnName="anc_message" />
                 <ScalarProperty Name="anc_title" ColumnName="anc_title" />
                 <ScalarProperty Name="anc_category" ColumnName="anc_category" />

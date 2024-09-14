@@ -14,32 +14,32 @@
 
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.bk_name, "Kitap Adı")
-        @Html.TextBoxFor(x => x.bk_name, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.bk_name, new { @class = "form-control", @required = "@required" })
     </div>
 
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.bk_ctg, "Kategori")
-        @Html.DropDownListFor(x => x.bk_ctg, (List<SelectListItem>)ViewBag.Categories, new { @class = "form-control" })
+        @Html.DropDownListFor(x => x.bk_ctg, (List<SelectListItem>)ViewBag.Categories, new { @class = "form-control", @required = "@required" })
     </div>
 
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.bk_ath, "Yazar")
-        @Html.DropDownListFor(x => x.bk_ath, (List<SelectListItem>)ViewBag.Authors, new { @class = "form-control" })
+        @Html.DropDownListFor(x => x.bk_ath, (List<SelectListItem>)ViewBag.Authors, new { @class = "form-control", @required = "@required" })
     </div>
 
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.bk_year_of_publication, "Yayın Yılı")
-        @Html.TextBoxFor(x => x.bk_year_of_publication, new { @class = "form-control", type = "number" })
+        @Html.TextBoxFor(x => x.bk_year_of_publication, new { @class = "form-control", type = "number", @required = "@required" })
     </div>
 
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.bk_publishing_house, "Yayınevi")
-        @Html.TextBoxFor(x => x.bk_publishing_house, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.bk_publishing_house, new { @class = "form-control", @required = "@required" })
     </div>
 
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.bk_page, "Sayfa Sayısı")
-        @Html.TextBoxFor(x => x.bk_page, new { @class = "form-control", type = "number" })
+        @Html.TextBoxFor(x => x.bk_page, new { @class = "form-control", type = "number", @required = "@required" })
     </div>
 
     <div class="form-group mt-3">

@@ -1,7 +1,8 @@
 ﻿@model List<LibraryWithMVC.Models.Entity.tbl_announcement>
+
 @{
     ViewBag.Title = "Duyurular";
-    Layout = "~/Views/Shared/_StudentPanelLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Duyurular</h2>
@@ -15,6 +16,8 @@
             <th>Başlık</th>
             <th>İçerik</th>
             <th>Duyuru Tarihi</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
         </tr>
     </thead>
     <tbody>
@@ -25,7 +28,11 @@
                 <td>@item.anc_title</td>
                 <td>@item.anc_message</td>
                 <td>@item.anc_beginDate.Value.ToString("dd MMMM yyyy")</td>
+                <td><a href="/Announcement/EditAnnouncement/@item.anc_id" class="btn btn-primary">Güncelle</a></td>
+                <td>@Html.ActionLink("Sil", "DeleteAnnouncement", new { id = item.anc_id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek İstediğinize Emin Misiniz?')" })</td>
             </tr>
         }
     </tbody>
 </table>
+
+<a href="/Announcement/AddAnnouncement/" class="btn btn-outline-primary">Yeni Duyuru Yaz</a>

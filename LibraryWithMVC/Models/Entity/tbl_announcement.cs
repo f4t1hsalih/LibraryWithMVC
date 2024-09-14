@@ -18,5 +18,6 @@ namespace LibraryWithMVC.Models.Entity
         public string anc_category { get; set; }
         public string anc_title { get; set; }
         public string anc_message { get; set; }
+        public Nullable<System.DateTime> anc_beginDate { get; set; }
     }
 }
