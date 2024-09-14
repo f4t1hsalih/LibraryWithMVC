@@ -1,0 +1,178 @@
+﻿@{
+    ViewBag.Title = "Ana Sayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10 text-center position-relative">
+            <h1 class="display-4 font-weight-bold text-dark mb-4">Kütüphane Yönetim Sistemi</h1>
+            <p class="h4 text-secondary mb-4">Admin Paneli</p>
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-light rounded-circle" style="opacity: 0.3; z-index: -1; transform: scale(1.5);"></div>
+        </div>
+    </div>
+
+    <!-- Hızlı Erişim Kartları -->
+    <div class="row mt-5">
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="card border-primary">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Kitaplar</h5>
+                    <a href="/Book/Index/" class="btn btn-primary btn-lg w-100">Görüntüle</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="card border-secondary">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Kategoriler</h5>
+                    <a href="/Category/Index/" class="btn btn-secondary btn-lg w-100">Görüntüle</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="card border-success">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Yazarlar</h5>
+                    <a href="/Author/Index/" class="btn btn-success btn-lg w-100">Görüntüle</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="card border-warning">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Üyeler</h5>
+                    <a href="/Member/Index/" class="btn btn-warning btn-lg w-100">Görüntüle</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="card border-info">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Personeller</h5>
+                    <a href="/Staff/Index/" class="btn btn-info btn-lg w-100">Görüntüle</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="card border-danger">
+                <div class="card-body text-center">
+                    <h5 class="card-title">İşlemler</h5>
+                    <a href="/Movement/Index/" class="btn btn-danger btn-lg w-100">Görüntüle</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="card border-dark">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Kitap Ödünç Ver</h5>
+                    <a href="/Borrow/Lend/" class="btn btn-dark btn-lg w-100">Görüntüle</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="card border-light">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Kitabı Geri Al</h5>
+                    <a href="/Borrow/ReturnTheBook/" class="btn btn-light btn-lg w-100">Görüntüle</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="card border-primary">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Vitrin</h5>
+                    <a href="/Showcase/Index/" class="btn btn-primary btn-lg w-100">Görüntüle</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="card border-secondary">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Galeri</h5>
+                    <a href="/Statistic/Gallery/" class="btn btn-secondary btn-lg w-100">Görüntüle</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="card border-success">
+                <div class="card-body text-center">
+                    <h5 class="card-title">İstatistikler</h5>
+                    <a href="/Statistic/Index/" class="btn btn-success btn-lg w-100">Görüntüle</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="card border-warning">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Linq Kartları</h5>
+                    <a href="/Statistic/LinqCards/" class="btn btn-warning btn-lg w-100">Görüntüle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Çıkış Butonu -->
+<a href="/Exit/Index/" class="btn btn-danger btn-circle position-fixed" style="top: 15px; right: 15px; z-index: 1000;">
+    <span class="material-icons">exit_to_app</span>
+</a>
+
+<style>
+    /* Kartların Stili */
+    .card {
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+    .card-body {
+        padding: 2rem;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        font-size: 1.125rem;
+        padding: 1rem;
+    }
+
+    /* Çıkış Butonu Stili */
+    .btn-circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        padding: 0;
+    }
+
+    .position-fixed {
+        position: fixed;
+    }
+
+    /* Daire Arka Planı */
+    .position-relative {
+        position: relative;
+        padding: 25px 0;
+    }
+
+    .position-absolute.bg-light {
+        border-radius: 50%;
+        height: 200px;
+        width: 200px;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%) scale(1.2);
+        opacity: 0.1;
+    }
+</style>
