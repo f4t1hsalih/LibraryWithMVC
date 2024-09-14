@@ -29,9 +29,9 @@ namespace LibraryWithMVC.Controllers
 
                 if (movement != null)
                 {
-                    var member = db.tbl_member.FirstOrDefault(m => m.mmb_id == movement.mvm_mmb);
-                    var book = db.tbl_book.FirstOrDefault(b => b.bk_id == movement.mvm_bk);
-                    var staff = db.tbl_staff.FirstOrDefault(s => s.stf_id == movement.mvm_stf);
+                    var member = db.tbl_member.Where(x => x.mmb_status == true).FirstOrDefault(m => m.mmb_id == movement.mvm_mmb);
+                    var book = db.tbl_book.Where(x => x.bk_status == true).FirstOrDefault(b => b.bk_id == movement.mvm_bk);
+                    var staff = db.tbl_staff.Where(x => x.stf_status == true).FirstOrDefault(s => s.stf_id == movement.mvm_stf);
 
                     if (member != null)
                     {
