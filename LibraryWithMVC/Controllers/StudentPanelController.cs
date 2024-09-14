@@ -8,6 +8,16 @@ namespace LibraryWithMVC.Controllers
     [Authorize]
     public class StudentPanelController : Controller
     {
+        public void getName()
+        {
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                int id = Convert.ToInt32(Session["id"].ToString());
+                tbl_member value = db.tbl_member.FirstOrDefault(x => x.mmb_id == id);
+                ViewBag.fullname = value.mmb_name + " " + value.mmb_surname;
+            }
+        }
+
         // GET: StudentPanel
         public ActionResult Index()
         {
@@ -23,6 +33,7 @@ namespace LibraryWithMVC.Controllers
         [HttpGet]
         public ActionResult EditProfile(int id)
         {
+            getName();
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
                 var values = db.tbl_member.FirstOrDefault(x => x.mmb_id == id);
@@ -50,15 +61,27 @@ namespace LibraryWithMVC.Controllers
         public ActionResult Exit()
         {
             Session.Clear();
+            Session.Abandon();
             return RedirectToAction("Index", "Showcase");
         }
 
         public ActionResult MyBooks()
         {
+            getName();
             DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities();
             int id = Convert.ToInt32(Session["id"].ToString());
             var values = db.tbl_movement.Where(x => x.mvm_mmb == id).ToList();
             return View(values);
+        }
+
+        public ActionResult Announcement()
+        {
+            getName();
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                var announcements = db.tbl_announcement.ToList();
+                return View(announcements);
+            }
         }
     }
 }

@@ -39,6 +39,7 @@ namespace LibraryWithMVC.Models.Entity
         public virtual DbSet<tbl_about> tbl_about { get; set; }
         public virtual DbSet<tbl_communication> tbl_communication { get; set; }
         public virtual DbSet<tbl_message> tbl_message { get; set; }
+        public virtual DbSet<tbl_announcement> tbl_announcement { get; set; }
     
         public virtual ObjectResult<GetTopAuthorByBookCount_Result> GetTopAuthorByBookCount()
         {

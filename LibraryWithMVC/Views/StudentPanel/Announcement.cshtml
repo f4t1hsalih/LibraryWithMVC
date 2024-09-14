@@ -1,0 +1,29 @@
+﻿@model List<LibraryWithMVC.Models.Entity.tbl_announcement>
+@{
+    ViewBag.Title = "Duyurular";
+    Layout = "~/Views/Shared/_StudentPanelLayout.cshtml";
+}
+
+<h2>Duyurular</h2>
+<hr />
+
+<!-- Kitap Listesi -->
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Kategori</th>
+            <th>Başlık</th>
+            <th>İçerik</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.anc_category</td>
+                <td>@item.anc_title</td>
+                <td>@item.anc_message</td>
+            </tr>
+        }
+    </tbody>
+</table>

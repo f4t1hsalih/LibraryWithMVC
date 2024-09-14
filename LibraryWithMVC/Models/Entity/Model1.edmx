@@ -22,6 +22,15 @@
           <Property Name="abt_id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="abt_about" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="tbl_announcement">
+          <Key>
+            <PropertyRef Name="anc_id" />
+          </Key>
+          <Property Name="anc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="anc_category" Type="varchar" MaxLength="50" />
+          <Property Name="anc_title" Type="varchar" MaxLength="100" />
+          <Property Name="anc_message" Type="varchar" MaxLength="500" />
+        </EntityType>
         <EntityType Name="tbl_author">
           <Key>
             <PropertyRef Name="ath_id" />
@@ -243,6 +252,7 @@
         <EntityContainer Name="DB_LibraryWithMVCModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_about" EntityType="Self.tbl_about" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_announcement" EntityType="Self.tbl_announcement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_author" EntityType="Self.tbl_author" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_book" EntityType="Self.tbl_book" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_category" EntityType="Self.tbl_category" Schema="dbo" store:Type="Tables" />
@@ -542,6 +552,7 @@
             <End Role="tbl_member" EntitySet="tbl_member" />
             <End Role="tbl_message" EntitySet="tbl_message" />
           </AssociationSet>
+          <EntitySet Name="tbl_announcement" EntityType="DB_LibraryWithMVCModel.tbl_announcement" />
         </EntityContainer>
         <EntityType Name="tbl_about">
           <Key>
@@ -601,6 +612,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tbl_announcement">
+          <Key>
+            <PropertyRef Name="anc_id" />
+          </Key>
+          <Property Name="anc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="anc_category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="anc_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="anc_message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -750,6 +770,16 @@
                 <ScalarProperty Name="msg_recipient" ColumnName="msg_recipient" />
                 <ScalarProperty Name="msg_sender" ColumnName="msg_sender" />
                 <ScalarProperty Name="msg_id" ColumnName="msg_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_announcement">
+            <EntityTypeMapping TypeName="DB_LibraryWithMVCModel.tbl_announcement">
+              <MappingFragment StoreEntitySet="tbl_announcement">
+                <ScalarProperty Name="anc_message" ColumnName="anc_message" />
+                <ScalarProperty Name="anc_title" ColumnName="anc_title" />
+                <ScalarProperty Name="anc_category" ColumnName="anc_category" />
+                <ScalarProperty Name="anc_id" ColumnName="anc_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

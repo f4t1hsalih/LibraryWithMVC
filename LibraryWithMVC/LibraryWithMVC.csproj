@@ -203,6 +203,9 @@
     <Compile Include="Models\Entity\tbl_about.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entity\tbl_announcement.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entity\tbl_author.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -512,6 +515,7 @@
     <Content Include="Views\Author\AuthorBooks.cshtml" />
     <Content Include="Views\Member\MemberBookHistory.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\StudentPanel\Announcement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Exit\" />

@@ -10,11 +10,12 @@ namespace LibraryWithMVC.Controllers
     {
         public void getName()
         {
-            DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities();
-
-            int id = Convert.ToInt32(Session["id"].ToString());
-            tbl_member value = db.tbl_member.FirstOrDefault(x => x.mmb_id == id);
-            ViewBag.fullname = value.mmb_name + " " + value.mmb_surname;
+            using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
+            {
+                int id = Convert.ToInt32(Session["id"].ToString());
+                tbl_member value = db.tbl_member.FirstOrDefault(x => x.mmb_id == id);
+                ViewBag.fullname = value.mmb_name + " " + value.mmb_surname;
+            }
         }
 
         // GET: Message
