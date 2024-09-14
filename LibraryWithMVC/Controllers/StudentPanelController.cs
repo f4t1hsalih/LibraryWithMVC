@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace LibraryWithMVC.Controllers
 {
@@ -57,12 +58,6 @@ namespace LibraryWithMVC.Controllers
                 db.SaveChanges();
                 return View("Index", value);
             }
-        }
-        public ActionResult Exit()
-        {
-            Session.Clear();
-            Session.Abandon();
-            return RedirectToAction("Index", "Showcase");
         }
 
         public ActionResult MyBooks()

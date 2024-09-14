@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using System.Web.Security;
 
 namespace LibraryWithMVC.Controllers
 {
@@ -9,6 +10,7 @@ namespace LibraryWithMVC.Controllers
         {
             Session.Clear();
             Session.Abandon();
+            FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Showcase");
         }
     }
