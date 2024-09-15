@@ -5,6 +5,7 @@ using System.Web.Security;
 
 namespace LibraryWithMVC.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login

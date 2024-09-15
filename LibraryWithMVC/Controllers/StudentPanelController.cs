@@ -6,7 +6,6 @@ using System.Web.Security;
 
 namespace LibraryWithMVC.Controllers
 {
-    [Authorize]
     public class StudentPanelController : Controller
     {
         public void getName()

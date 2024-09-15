@@ -5,6 +5,7 @@ using LibraryWithMVC.Models.MyClasses;
 
 namespace LibraryWithMVC.Controllers
 {
+    [AllowAnonymous] //Bu controllerda bulunan action'ları authorizationdan muaf tutar
     public class ShowcaseController : Controller
     {
         // GET: Showcase
