@@ -22,6 +22,14 @@
           <Property Name="abt_id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="abt_about" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="tbl_admin">
+          <Key>
+            <PropertyRef Name="adm_id" />
+          </Key>
+          <Property Name="adm_id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adm_username" Type="varchar" MaxLength="20" />
+          <Property Name="adm_password" Type="varchar" MaxLength="20" />
+        </EntityType>
         <EntityType Name="tbl_announcement">
           <Key>
             <PropertyRef Name="anc_id" />
@@ -253,6 +261,7 @@
         <EntityContainer Name="DB_LibraryWithMVCModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_about" EntityType="Self.tbl_about" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_admin" EntityType="Self.tbl_admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_announcement" EntityType="Self.tbl_announcement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_author" EntityType="Self.tbl_author" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_book" EntityType="Self.tbl_book" Schema="dbo" store:Type="Tables" />
@@ -554,6 +563,7 @@
             <End Role="tbl_message" EntitySet="tbl_message" />
           </AssociationSet>
           <EntitySet Name="tbl_announcement" EntityType="DB_LibraryWithMVCModel.tbl_announcement" />
+          <EntitySet Name="tbl_admin" EntityType="DB_LibraryWithMVCModel.tbl_admin" />
         </EntityContainer>
         <EntityType Name="tbl_about">
           <Key>
@@ -622,6 +632,14 @@
           <Property Name="anc_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="anc_message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="anc_beginDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tbl_admin">
+          <Key>
+            <PropertyRef Name="adm_id" />
+          </Key>
+          <Property Name="adm_id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adm_username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="adm_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -783,6 +801,15 @@
                 <ScalarProperty Name="anc_title" ColumnName="anc_title" />
                 <ScalarProperty Name="anc_category" ColumnName="anc_category" />
                 <ScalarProperty Name="anc_id" ColumnName="anc_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_admin">
+            <EntityTypeMapping TypeName="DB_LibraryWithMVCModel.tbl_admin">
+              <MappingFragment StoreEntitySet="tbl_admin">
+                <ScalarProperty Name="adm_password" ColumnName="adm_password" />
+                <ScalarProperty Name="adm_username" ColumnName="adm_username" />
+                <ScalarProperty Name="adm_id" ColumnName="adm_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -10,10 +10,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link href="~/Content/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link href="~/Content/icheck-bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/adminlte.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 </head>
 <body class="hold-transition login-page">
     <div class="login-box">
@@ -24,9 +28,10 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Kütüphane Sistemine Admin Girişi Yap</p>
 
-                <form action="../../index3.html" method="post">
+                @using (Html.BeginForm("Login", "AdminLogin", FormMethod.Post))
+                {
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Username">
+                        <input type="text" class="form-control" name="adm_username" placeholder="Kullanıcı Adı">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -34,7 +39,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Şifre">
+                        <input type="password" class="form-control" name="adm_password" placeholder="Şifre">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -46,7 +51,7 @@
                             <button type="submit" class="btn btn-primary btn-block">Giriş Yap</button>
                         </div>
                     </div>
-                </form>
+                }
             </div>
         </div>
     </div>
