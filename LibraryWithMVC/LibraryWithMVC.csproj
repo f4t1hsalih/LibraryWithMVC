@@ -169,6 +169,7 @@
     <Compile Include="Controllers\BorrowController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ExitController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
@@ -532,6 +533,9 @@
     <Content Include="Views\Announcement\EditAnnouncement.cshtml" />
     <Content Include="Views\AdminLogin\Login.cshtml" />
     <Content Include="Scripts\LICENSE" />
+    <Content Include="Views\Error\Page404.cshtml" />
+    <Content Include="Views\Error\Page403.cshtml" />
+    <Content Include="Views\Error\Page400.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Exit\" />
