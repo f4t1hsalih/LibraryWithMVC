@@ -102,7 +102,11 @@
                             </div>
                             @if (!string.IsNullOrEmpty(item.bk_image))
                             {
-                                <img class="img-fluid" src="@item.bk_image" alt="">
+                                <img class="img-fluid" src="@item.bk_image" alt="Kitap Resmi">
+                            }
+                            else
+                            {
+                                <img class="img-fluid" src="~/Templates/web/img/EmptyBook.png" alt="Varsayılan Kitap Resmi">
                             }
                         </div>
                     </div>

@@ -1,8 +1,5 @@
-﻿using System;
+﻿using LibraryWithMVC.Models.Entity;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using LibraryWithMVC.Models.Entity;
 
 namespace LibraryWithMVC.Models.MyClasses
 {

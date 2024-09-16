@@ -411,6 +411,7 @@
     <Content Include="Templates\web\.gitignore" />
     <Content Include="Templates\web\css\freelancer.min.css" />
     <Content Include="Templates\web\gulpfile.js" />
+    <Content Include="Templates\web\img\EmptyBook.png" />
     <Content Include="Templates\web\img\library.png" />
     <Content Include="Templates\web\index.html" />
     <Content Include="Templates\web\js\contact_me.js" />
