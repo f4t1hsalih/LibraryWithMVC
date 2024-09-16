@@ -361,6 +361,14 @@
     <Content Include="Templates\web2\LinqCardsCSS\style_grid.css" />
     <Content Include="Templates\web2\LinqCardsCSS\table-style.css" />
     <Content Include="Templates\web2\w3layouts-License.txt" />
+    <Content Include="Templates\weberror\css\font-awesome.min.css" />
+    <Content Include="Templates\weberror\css\popuo-box.css" />
+    <Content Include="Templates\weberror\css\style.css" />
+    <Content Include="Templates\weberror\images\b8.jpg" />
+    <Content Include="Templates\weberror\index.html" />
+    <Content Include="Templates\weberror\js\jquery-2.2.3.min.js" />
+    <Content Include="Templates\weberror\js\jquery.magnific-popup.js" />
+    <Content Include="Templates\weberror\w3layouts-License.txt" />
     <Content Include="Templates\webhava\css\style.css" />
     <Content Include="Templates\webhava\images\bg.jpg" />
     <Content Include="Templates\webhava\images\img1.jpg" />
@@ -536,6 +544,11 @@
     <Content Include="Views\Error\Page404.cshtml" />
     <Content Include="Views\Error\Page403.cshtml" />
     <Content Include="Views\Error\Page400.cshtml" />
+    <Content Include="Templates\weberror\fonts\fontawesome-webfont.eot" />
+    <Content Include="Templates\weberror\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Templates\weberror\fonts\fontawesome-webfont.woff" />
+    <Content Include="Templates\weberror\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Templates\weberror\fonts\FontAwesome.otf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Exit\" />
