@@ -11,7 +11,8 @@ namespace LibraryWithMVC.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbl_member
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,13 +25,26 @@ namespace LibraryWithMVC.Models.Entity
         }
     
         public int mmb_id { get; set; }
+        [Required(ErrorMessage = "Ýsim Alaný Zorunludur!")]
+        [StringLength(20, ErrorMessage = "Ýsim Alaný En Fazla 20 Karakter Alabilir!")]
         public string mmb_name { get; set; }
+        [Required(ErrorMessage = "Soyisim Alaný Zorunludur!")]
+        [StringLength(20, ErrorMessage = "Yayýnevi Alaný En Fazla 20 Karakter Alabilir!")]
         public string mmb_surname { get; set; }
+        [Required(ErrorMessage = "E-Mail Alaný Zorunludur!")]
+        [StringLength(50, ErrorMessage = "E-Mail Alaný En Fazla 50 Karakter Alabilir!")]
         public string mmb_email { get; set; }
+        [Required(ErrorMessage = "Kullanýcý Adý Alaný Zorunludur!")]
+        [StringLength(20, ErrorMessage = "Kullanýcý Adý Alaný En Fazla 20 Karakter Alabilir!")]
         public string mmb_username { get; set; }
+        [Required(ErrorMessage = "Þifre Alaný Zorunludur!")]
+        [StringLength(20, ErrorMessage = "Þifre Alaný En Fazla 20 Karakter Alabilir!")]
         public string mmb_password { get; set; }
         public string mmb_photo { get; set; }
+        [Required(ErrorMessage = "Telefon Alaný Zorunludur!")]
+        [StringLength(20, ErrorMessage = "Telefon Alaný En Fazla 20 Karakter Alabilir!")]
         public string mmb_tel { get; set; }
+        [StringLength(100, ErrorMessage = "Okul Ýsmi Alaný En Fazla 100 Karakter Alabilir!")]
         public string mmb_school { get; set; }
         public Nullable<bool> mmb_status { get; set; }
     

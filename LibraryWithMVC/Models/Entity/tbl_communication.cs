@@ -11,13 +11,22 @@ namespace LibraryWithMVC.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbl_communication
     {
         public int cmm_id { get; set; }
+        [Required(ErrorMessage = "Ýsim Alaný Zorunludur!")]
+        [StringLength(50, ErrorMessage = "Ýsim Alaný En Fazla 50 Karakter Alabilir!")]
         public string cmm_name { get; set; }
+        [Required(ErrorMessage = "E-Mail Alaný Zorunludur!")]
+        [StringLength(50, ErrorMessage = "E-Mail Alaný En Fazla 50 Karakter Alabilir!")]
         public string cmm_email { get; set; }
+        [Required(ErrorMessage = "Konu Alaný Zorunludur!")]
+        [StringLength(50, ErrorMessage = "Konu Alaný En Fazla 50 Karakter Alabilir!")]
         public string cmm_subject { get; set; }
+        [Required(ErrorMessage = "Mesaj Alaný Zorunludur!")]
+        [StringLength(1000, ErrorMessage = "Mesaj Alaný En Fazla 1000 Karakter Alabilir!")]
         public string cmm_message { get; set; }
     }
 }

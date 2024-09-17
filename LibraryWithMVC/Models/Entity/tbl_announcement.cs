@@ -11,12 +11,19 @@ namespace LibraryWithMVC.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbl_announcement
     {
         public int anc_id { get; set; }
+        [Required(ErrorMessage ="Kategori Alaný Zorunludur!")]
+        [StringLength(50,ErrorMessage ="Kategori Alaný En Fazla 50 Karakter Alabilir!")]
         public string anc_category { get; set; }
+        [Required(ErrorMessage = "Baþlýk Alaný Zorunludur!")]
+        [StringLength(100, ErrorMessage = "Baþlýk Alaný En Fazla 100 Karakter Alabilir!")]
         public string anc_title { get; set; }
+        [Required(ErrorMessage = "Mesaj Alaný Zorunludur!")]
+        [StringLength(500, ErrorMessage = "Mesaj Alaný En Fazla 500 Karakter Alabilir!")]
         public string anc_message { get; set; }
         public Nullable<System.DateTime> anc_beginDate { get; set; }
     }

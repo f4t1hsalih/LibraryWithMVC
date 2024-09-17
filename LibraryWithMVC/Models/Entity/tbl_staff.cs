@@ -11,7 +11,8 @@ namespace LibraryWithMVC.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbl_staff
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,11 @@ namespace LibraryWithMVC.Models.Entity
         }
     
         public byte stf_id { get; set; }
+        [Required(ErrorMessage = "Ýsim Alaný Zorunludur!")]
+        [StringLength(30, ErrorMessage = "Ýsim Alaný En Fazla 30 Karakter Alabilir!")]
         public string stf_name { get; set; }
+        [Required(ErrorMessage = "Soyisim Alaný Zorunludur!")]
+        [StringLength(30, ErrorMessage = "Soyisim Alaný En Fazla 30 Karakter Alabilir!")]
         public string stf_surname { get; set; }
         public Nullable<bool> stf_status { get; set; }
     

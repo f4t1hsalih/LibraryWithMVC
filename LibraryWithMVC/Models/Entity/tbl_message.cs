@@ -11,13 +11,18 @@ namespace LibraryWithMVC.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbl_message
     {
         public int msg_id { get; set; }
         public Nullable<int> msg_sender { get; set; }
         public Nullable<int> msg_recipient { get; set; }
+        [Required(ErrorMessage = "Konu Alaný Zorunludur!")]
+        [StringLength(50, ErrorMessage = "Konu Alaný En Fazla 50 Karakter Alabilir!")]
         public string msg_subject { get; set; }
+        [Required(ErrorMessage = "Ýçerik Alaný Zorunludur!")]
+        [StringLength(500, ErrorMessage = "Ýçerik Alaný En Fazla 500 Karakter Alabilir!")]
         public string msg_content { get; set; }
         public Nullable<System.DateTime> msg_date { get; set; }
     

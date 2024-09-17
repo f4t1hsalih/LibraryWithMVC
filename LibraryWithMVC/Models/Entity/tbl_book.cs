@@ -11,7 +11,8 @@ namespace LibraryWithMVC.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbl_book
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,12 +22,19 @@ namespace LibraryWithMVC.Models.Entity
         }
     
         public int bk_id { get; set; }
+        [Required(ErrorMessage = "Ýsim Alaný Zorunludur!")]
+        [StringLength(50, ErrorMessage = "Ýsim Alaný En Fazla 50 Karakter Alabilir!")]
         public string bk_name { get; set; }
         public Nullable<byte> bk_ctg { get; set; }
         public Nullable<int> bk_ath { get; set; }
+        [Required(ErrorMessage = "Yayýn Yýlý Alaný Zorunludur!")]
+        [StringLength(4, ErrorMessage = "Yayýn Yýlý Alaný En Fazla 4 Karakter Alabilir!")]
         public string bk_year_of_publication { get; set; }
+        [Required(ErrorMessage = "Yayýnevi Alaný Zorunludur!")]
+        [StringLength(50, ErrorMessage = "Yayýnevi Alaný En Fazla 50 Karakter Alabilir!")]
         public string bk_publishing_house { get; set; }
-        public string bk_page { get; set; }
+        [Required(ErrorMessage = "Sayfa Sayýsý Alaný Zorunludur!")]
+        [Range(1, 9999, ErrorMessage = "Sayfa Sayýsý 1 ile 9999 arasýnda olmalýdýr!")] public string bk_page { get; set; }
         public Nullable<bool> bk_status { get; set; }
         public string bk_image { get; set; }
     

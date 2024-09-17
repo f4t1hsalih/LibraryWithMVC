@@ -542,9 +542,7 @@
     <Content Include="Templates\weberror\fonts\fontawesome-webfont.woff2" />
     <Content Include="Templates\weberror\fonts\FontAwesome.otf" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Exit\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
     <Content Include="Content\bootstrap.rtl.css.map" />
