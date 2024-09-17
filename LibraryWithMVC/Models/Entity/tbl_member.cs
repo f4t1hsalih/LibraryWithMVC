@@ -40,6 +40,7 @@ namespace LibraryWithMVC.Models.Entity
         [Required(ErrorMessage = "Þifre Alaný Zorunludur!")]
         [StringLength(20, ErrorMessage = "Þifre Alaný En Fazla 20 Karakter Alabilir!")]
         public string mmb_password { get; set; }
+        [StringLength(250, ErrorMessage = "Fotoðraf Alaný En Fazla 250 Karakter Alabilir!")]
         public string mmb_photo { get; set; }
         [Required(ErrorMessage = "Telefon Alaný Zorunludur!")]
         [StringLength(20, ErrorMessage = "Telefon Alaný En Fazla 20 Karakter Alabilir!")]

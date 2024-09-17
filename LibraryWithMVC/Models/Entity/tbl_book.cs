@@ -23,7 +23,7 @@ namespace LibraryWithMVC.Models.Entity
     
         public int bk_id { get; set; }
         [Required(ErrorMessage = "Ýsim Alaný Zorunludur!")]
-        [StringLength(50, ErrorMessage = "Ýsim Alaný En Fazla 50 Karakter Alabilir!")]
+        [StringLength(50, ErrorMessage = "Kitap Ýsmi Alaný En Fazla 50 Karakter Alabilir!")]
         public string bk_name { get; set; }
         public Nullable<byte> bk_ctg { get; set; }
         public Nullable<int> bk_ath { get; set; }
@@ -34,8 +34,10 @@ namespace LibraryWithMVC.Models.Entity
         [StringLength(50, ErrorMessage = "Yayýnevi Alaný En Fazla 50 Karakter Alabilir!")]
         public string bk_publishing_house { get; set; }
         [Required(ErrorMessage = "Sayfa Sayýsý Alaný Zorunludur!")]
-        [Range(1, 9999, ErrorMessage = "Sayfa Sayýsý 1 ile 9999 arasýnda olmalýdýr!")] public string bk_page { get; set; }
+        [Range(1, 9999, ErrorMessage = "Sayfa Sayýsý 1 ile 9999 arasýnda olmalýdýr!")]
+        public string bk_page { get; set; }
         public Nullable<bool> bk_status { get; set; }
+        [StringLength(250, ErrorMessage = "Kitap Resmi Alaný En Fazla 250 Karakter Alabilir!")]
         public string bk_image { get; set; }
     
         public virtual tbl_author tbl_author { get; set; }

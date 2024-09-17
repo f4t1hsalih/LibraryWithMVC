@@ -13,7 +13,6 @@
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.msg_recipient, "Alıcı")
         @Html.DropDownListFor(x => x.msg_recipient, (List<SelectListItem>)ViewBag.Recipient, new { @class = "form-control", @required = "@required" })
-        @Html.ValidationMessageFor(x => x.msg_recipient, "", new { @style = "color:red" })
     </div>
 
     <div class="form-group mt-3">

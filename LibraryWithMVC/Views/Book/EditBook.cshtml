@@ -15,6 +15,7 @@
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.bk_name, "Kitap Adı")
         @Html.TextBoxFor(x => x.bk_name, new { @class = "form-control", @required = "@required" })
+        @Html.ValidationMessageFor(x => x.bk_name, "", new { @style = "color:red" })
     </div>
 
     <div class="form-group mt-3">
@@ -30,21 +31,25 @@
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.bk_year_of_publication, "Yayın Yılı")
         @Html.TextBoxFor(x => x.bk_year_of_publication, new { @class = "form-control", type = "number", @required = "@required" })
+        @Html.ValidationMessageFor(x => x.bk_year_of_publication, "", new { @style = "color:red" })
     </div>
 
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.bk_publishing_house, "Yayınevi")
         @Html.TextBoxFor(x => x.bk_publishing_house, new { @class = "form-control", @required = "@required" })
+        @Html.ValidationMessageFor(x => x.bk_publishing_house, "", new { @style = "color:red" })
     </div>
 
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.bk_page, "Sayfa Sayısı")
         @Html.TextBoxFor(x => x.bk_page, new { @class = "form-control", type = "number", @required = "@required" })
+        @Html.ValidationMessageFor(x => x.bk_page, "", new { @style = "color:red" })
     </div>
 
     <div class="form-group mt-3">
         @Html.LabelFor(x => x.bk_image, "Kitap Resmi")
         @Html.TextBoxFor(x => x.bk_image, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.bk_image, "", new { @style = "color:red" })
     </div>
 
     <div class="form-group mt-3">

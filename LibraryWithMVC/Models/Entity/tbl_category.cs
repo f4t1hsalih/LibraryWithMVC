@@ -23,7 +23,7 @@ namespace LibraryWithMVC.Models.Entity
     
         public byte ctg_id { get; set; }
         [Required(ErrorMessage = "Kategori Adý Alaný Zorunludur!")]
-        [StringLength(20, ErrorMessage = "kategori Adý Alaný En Fazla 20 Karakter Alabilir!")]
+        [StringLength(20, ErrorMessage = "Kategori Adý Alaný En Fazla 20 Karakter Alabilir!")]
         public string ctg_name { get; set; }
         public Nullable<bool> ctg_status { get; set; }
     
