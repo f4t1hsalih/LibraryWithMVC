@@ -51,10 +51,19 @@ namespace LibraryWithMVC.Controllers
         [HttpPost]
         public ActionResult AddBook(tbl_book book)
         {
-            book.bk_status = true;
-            db.tbl_book.Add(book);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            ModelState.Remove("bk_id");
+            if (ModelState.IsValid)
+            {
+                book.bk_status = true;
+                db.tbl_book.Add(book);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(book);
+            }
+
         }
 
         // GET: DeleteBook
@@ -92,9 +101,14 @@ namespace LibraryWithMVC.Controllers
         [HttpPost]
         public ActionResult EditBook(tbl_book book)
         {
-            db.Entry(book).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            ModelState.Remove("bk_id");
+            if (ModelState.IsValid)
+            {
+                db.Entry(book).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(book);
         }
 
     }

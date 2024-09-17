@@ -35,11 +35,8 @@ namespace LibraryWithMVC.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                else
-                {
-                    return View(staff);
-                }
             }
+            return View(staff);
         }
 
         //GET: DeleteStaff
@@ -69,10 +66,15 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
-                db.Entry(staff).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ModelState.Remove("stf_id");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(staff).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
+            return View(staff);
         }
 
     }

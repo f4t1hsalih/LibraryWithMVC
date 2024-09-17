@@ -27,10 +27,15 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
-                db.tbl_communication.Add(cmm);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ModelState.Remove("cmm_id");
+                if (ModelState.IsValid)
+                {
+                    db.tbl_communication.Add(cmm);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
+            return View(cmm);
         }
 
     }

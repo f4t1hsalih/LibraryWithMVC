@@ -27,10 +27,18 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
-                anc.anc_beginDate = DateTime.Now.Date;
-                db.tbl_announcement.Add(anc);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ModelState.Remove("anc_id");
+                if (ModelState.IsValid)
+                {
+                    anc.anc_beginDate = DateTime.Now.Date;
+                    db.tbl_announcement.Add(anc);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(anc);
+                }
             }
         }
 
@@ -48,19 +56,22 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
-                var existingAnnouncement = db.tbl_announcement.Find(anc.anc_id); 
-
-                if (existingAnnouncement != null)
+                var existingAnnouncement = db.tbl_announcement.Find(anc.anc_id);
+                ModelState.Remove("anc_id");
+                if (existingAnnouncement != null && ModelState.IsValid)
                 {
                     anc.anc_beginDate = existingAnnouncement.anc_beginDate;
                     db.Entry(existingAnnouncement).CurrentValues.SetValues(anc);
                     db.SaveChanges();
+                    return RedirectToAction("Index");
                 }
-
-                return RedirectToAction("Index");
+                else
+                {
+                    return View(anc);
+                }
+                
             }
         }
-
 
         public ActionResult DeleteAnnouncement(int id)
         {

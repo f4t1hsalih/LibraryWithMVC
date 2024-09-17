@@ -2,7 +2,6 @@
 using System;
 using System.Linq;
 using System.Web.Mvc;
-using System.Web.Security;
 
 namespace LibraryWithMVC.Controllers
 {
@@ -45,17 +44,22 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
-                tbl_member value = db.tbl_member.FirstOrDefault(x => x.mmb_id == mem.mmb_id);
-                value.mmb_name = mem.mmb_name;
-                value.mmb_surname = mem.mmb_surname;
-                value.mmb_email = mem.mmb_email;
-                value.mmb_tel = mem.mmb_tel;
-                value.mmb_photo = mem.mmb_photo;
-                value.mmb_school = mem.mmb_school;
-                value.mmb_password = mem.mmb_password;
-                db.Entry(value).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-                return View("Index", value);
+                ModelState.Remove("mmb_id");
+                if (ModelState.IsValid)
+                {
+                    tbl_member value = db.tbl_member.FirstOrDefault(x => x.mmb_id == mem.mmb_id);
+                    value.mmb_name = mem.mmb_name;
+                    value.mmb_surname = mem.mmb_surname;
+                    value.mmb_email = mem.mmb_email;
+                    value.mmb_tel = mem.mmb_tel;
+                    value.mmb_photo = mem.mmb_photo;
+                    value.mmb_school = mem.mmb_school;
+                    value.mmb_password = mem.mmb_password;
+                    db.Entry(value).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return View("Index", value);
+                }
+                return View(mem);
             }
         }
 

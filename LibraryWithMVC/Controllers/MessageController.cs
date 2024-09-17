@@ -47,14 +47,21 @@ namespace LibraryWithMVC.Controllers
         public ActionResult NewMessage(tbl_message msg)
         {
             DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities();
-            msg.msg_sender = (int)Session["id"];
-            msg.msg_date = DateTime.Now.Date;
-            db.tbl_message.Add(msg);
-            db.SaveChanges();
-            int currentUserId = (int)Session["id"];
-            List<tbl_message> messages = db.tbl_message.Where(x => x.msg_recipient == currentUserId).ToList();
-            return RedirectToAction("SendMessage", messages);
+            ModelState.Remove("msg_id");
+            if (ModelState.IsValid)
+            {
+                msg.msg_sender = (int)Session["id"];
+                msg.msg_date = DateTime.Now.Date;
+                db.tbl_message.Add(msg);
+                db.SaveChanges();
+                int currentUserId = (int)Session["id"];
+                List<tbl_message> messages = db.tbl_message.Where(x => x.msg_recipient == currentUserId).ToList();
+                return RedirectToAction("SendMessage", messages);
+            }
+            return View(msg);
+
         }
+
         public ActionResult SendMessage()
         {
             getName();

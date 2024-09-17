@@ -37,11 +37,8 @@ namespace LibraryWithMVC.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                else
-                {
-                    return View(member);
-                }
             }
+            return View(member);
         }
 
         // GET: DeleteMember
@@ -84,10 +81,15 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
-                db.Entry(member).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
+                ModelState.Remove("mmb_id");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(member).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-            return RedirectToAction("Index");
+            return View(member);
         }
         public ActionResult MemberBookHistory(int id)
         {

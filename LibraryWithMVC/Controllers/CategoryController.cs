@@ -26,11 +26,16 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
-                category.ctg_status = true;
-                db.tbl_category.Add(category);
-                db.SaveChanges();
+                ModelState.Remove("ctg_id");
+                if (ModelState.IsValid)
+                {
+                    category.ctg_status = true;
+                    db.tbl_category.Add(category);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-            return RedirectToAction("Index");
+            return View(category);
         }
 
         // GET: DeleteCategory
@@ -61,10 +66,15 @@ namespace LibraryWithMVC.Controllers
         {
             using (DB_LibraryWithMVCEntities db = new DB_LibraryWithMVCEntities())
             {
-                db.Entry(category).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
+                ModelState.Remove("ctg_id");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(category).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-            return RedirectToAction("Index");
+            return View(category);
         }
 
     }
