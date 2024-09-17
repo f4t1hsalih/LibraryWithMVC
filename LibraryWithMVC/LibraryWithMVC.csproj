@@ -369,16 +369,9 @@
     <Content Include="Templates\weberror\js\jquery-2.2.3.min.js" />
     <Content Include="Templates\weberror\js\jquery.magnific-popup.js" />
     <Content Include="Templates\weberror\w3layouts-License.txt" />
-    <Content Include="Templates\webhava\css\style.css" />
-    <Content Include="Templates\webhava\images\bg.jpg" />
-    <Content Include="Templates\webhava\images\img1.jpg" />
-    <Content Include="Templates\webhava\index.html" />
-    <Content Include="Templates\webhava\js\jquery-2.1.4.min.js" />
-    <Content Include="Templates\webhava\js\skycons.js" />
-    <Content Include="Templates\webhava\w3layouts-License.txt" />
     <Content Include="Templates\weblogin\css\fontawesome-all.css" />
     <Content Include="Templates\weblogin\css\style.css" />
-    <Content Include="Templates\weblogin\images\cover4.jpg" />
+    <Content Include="Templates\weblogin\images\Cover.png" />
     <Content Include="Templates\weblogin\index.html" />
     <Content Include="Templates\weblogin\w3layouts-License.txt" />
     <Content Include="Templates\weblogin\webfonts\fa-brands-400.svg" />
@@ -483,8 +476,6 @@
     <Content Include="Templates\web\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Showcase\Index.cshtml" />
     <Content Include="Views\Statistic\Index.cshtml" />
-    <Content Include="Views\Statistic\Weather.cshtml" />
-    <Content Include="Views\Statistic\WeatherCard.cshtml" />
     <Content Include="Views\Statistic\Gallery.cshtml" />
     <Content Include="Views\Movement\Detail.cshtml" />
     <Content Include="Views\Statistic\LinqCards.cshtml" />

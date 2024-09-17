@@ -21,18 +21,11 @@ namespace LibraryWithMVC.Controllers
             }
         }
 
-        public ActionResult Weather()
-        {
-            return View();
-        }
-        public ActionResult WeatherCard()
-        {
-            return View();
-        }
         public ActionResult Gallery()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult UploadFile(HttpPostedFileBase file)
         {
