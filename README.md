@@ -7,14 +7,16 @@ Bu proje, bir kütüphanedeki kitapların, üyelerin ve işlemlerin yönetimini 
 ## Özellikler
 
 ### Kullanıcı Modülü
-- Kullanıcılar sisteme giriş yapabilir, kitap ödünç alabilir ve iade edebilir.
+- Kullanıcılar sisteme giriş yapabilir, bilgilerini güncelleyebilir.
 - Kullanıcı profilleri üzerinden ödünç alma geçmişi görüntülenebilir.
-- Kitap kategorilerine göre filtreleme ve arama yapabilir.
+- Diğer Kullanıcılara mesaj atabilir veya onlardan gelen mesajları görüntüleyebilir.
 
 ### Admin Modülü
 - Yönetim paneli aracılığıyla kitap, kategori, yazar, üye ve personel yönetimi.
 - Ödünç verme ve iade işlemlerini yönetme.
-- İstatistikler modülü ile kitaplar ve işlemler hakkında detaylı raporlama.
+- İstatistikler modülü ile kitaplar ve işlemler hakkında raporlama.
+- Duyuru oluşturup tüm öğrencilere bildirme.
+- LINQ Kartlar bölümü ile istatistikleri kartlar formatında görebilir.
 - Admin panelinde hızlı erişim butonları.
 
 ### Misafir Modülü
