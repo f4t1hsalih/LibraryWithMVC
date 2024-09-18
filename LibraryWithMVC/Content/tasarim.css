@@ -34,7 +34,6 @@ body {
 
     .sidebar ul {
         list-style: none; /* Menü listesindeki varsayılan işaretleri (bullet points) kaldırır. */
-        margin-left: 15px;
         padding: 0;
     }
 
@@ -62,6 +61,7 @@ body {
                     font-size: 24px;
                     margin-right: 10px; /* Bu değeri azaltabilir veya artırabilirsiniz */
                     vertical-align: middle; /*Simgeyi metinle hizalar*/
+                    margin-left: 15px; /*Sol taraftan 15px boşluk bırakır*/
                 }
 
 /* Açılır Menü (Submenu) */
@@ -99,12 +99,12 @@ body {
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-    background-color: #888; /* Kaydırma çubuğunun rengi */
+    background-color: #808080; /* Kaydırma çubuğunun rengi */
     border-radius: 10px; /* Köşe yuvarlaklığı */
 }
 
 .sidebar::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Kaydırma çubuğunun arka plan rengi */
+    background: #2c3e50; /* Kaydırma çubuğunun arka plan rengi */
     border-radius: 10px; /* Köşe yuvarlaklığı */
 }
 
@@ -137,24 +137,34 @@ body {
 
 @media (max-width: 576px) {
     .sidebar {
-        width: 60px; /* Ekran genişliği 576px veya daha küçük olduğunda, yan menünün genişliğini 60 piksel yapar. */
+        width: 70px; /* Ekran genişliği 576px veya daha küçük olduğunda, yan menünün genişliğini 60 piksel yapar. */
     }
 
         .sidebar .logo,
         .sidebar ul li a span {
-            display: none; /* Yan menüdeki logo ve metinleri gizler. Bu, ekranı daha fazla yer açmak için kullanılır. */
+            display: none; /* Yan menüdeki logo ve metinleri gizler. */
         }
 
         .sidebar ul li a {
-            justify-content: center; /* Simgeyi tam ortalar */
-            padding: 10px; /* Gereksiz boşlukları düzenler */
+            display: flex;
+            justify-content: center; /* İkonları yatayda tam ortalar */
+            align-items: center; /* İkonları dikeyde ortalar */
+            padding: 10px; /* Menü öğelerine gerekli boşluğu verir */
         }
 
-        .sidebar ul li .submenu a {
-            padding: 12px 20px; /* Alt menü bağlantılarının iç boşluklarını (padding) 12 piksel üst ve alt, 20 piksel sağ ve sol yapar. */
-        }
+            .sidebar ul li a .material-icons {
+                font-size: 24px; /* İkonların boyutunu belirler */
+                display: inline-block;
+                margin-right: 0; /* Sağ boşluğu sıfırlar */
+                margin-left: 0; /* Sol boşluğu sıfırlar */
+            }
+
+            .sidebar ul li a .mat {
+                display: none;
+            }
 
     .main-content {
-        margin-left: 60px; /* İçerik alanının sol tarafındaki boşluğu yan menü genişliğine göre ayarlar. */
+        margin-left: 70px; /* İçerik alanının sol tarafındaki boşluğu yan menü genişliğine göre ayarlar. */
     }
 }
+
